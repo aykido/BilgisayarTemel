@@ -28,7 +28,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
   return (
     <div className={`bg-white shadow-lg md:w-72 lg:w-80 flex-shrink-0 md:h-screen overflow-hidden border-r border-neutral-100 z-10 ${isMobileOpen ? "fixed inset-0" : "hidden md:block"}`}>
       <div className="p-4 bg-primary flex items-center justify-between">
-        <h1 className="text-xl font-bold text-white">Bilgisayar Operatör Eğitimi</h1>
+        <a href="/" className="text-xl font-bold text-white no-underline hover:underline">Bilgisayar Operatör Eğitimi</a>
         <button onClick={onToggleMobile} className="md:hidden text-white">
           <span className="material-icons">close</span>
         </button>
@@ -107,7 +107,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
           <div className="bg-neutral-50 p-3 rounded-lg">
             <h3 className="text-sm font-semibold text-neutral-800 mb-2">Yardıma mı ihtiyacın var?</h3>
             <p className="text-xs text-neutral-600 mb-3">Soruların için eğitmenle iletişime geçebilirsin.</p>
-            <a href="mailto:aykut.bozalan@gmail.com" className="block w-full px-3 py-1.5 bg-primary text-white rounded text-sm font-medium hover:bg-primary/90 transition-colors text-center">İletişime Geç</a>
+            <a href="mailto:aykutbozalan@gmail.com" className="block w-full px-3 py-1.5 bg-primary text-white rounded text-sm font-medium hover:bg-primary/90 transition-colors text-center">İletişime Geç</a>
           </div>
         </div>
       </div>
