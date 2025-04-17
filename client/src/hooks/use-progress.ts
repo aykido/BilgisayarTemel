@@ -50,33 +50,75 @@ export function useProgress() {
     },
   });
 
+  // API verilerini sorgula
+  const { data: moduleUnlocks } = useQuery({
+    queryKey: ['/api/module-unlocks'],
+    staleTime: 5 * 60 * 1000, // 5 dakika
+  });
+  
   // Process the data from the server to update the local state
   useEffect(() => {
     if (progressData && Array.isArray(progressData)) {
       const moduleProgress: UserProgressData['moduleProgress'] = {};
       const lessonProgress: UserProgressData['lessonProgress'] = {};
       
-      // Start by locking all modules except the first one
+      // Önce tüm modülleri kilitli varsay, sonra kilit durumlarını güncelle
       courseData.forEach((module, index) => {
         if (index === 0) {
-          module.isLocked = false; // First module is always unlocked
+          module.isLocked = false; // İlk modül her zaman açık
         } else {
-          module.isLocked = true; // Lock all other modules by default
+          module.isLocked = true; // Diğer modülleri varsayılan olarak kilitle
         }
       });
       
-      // Process all completed lessons
-      const completedLessonsByModule = new Map<string, Set<string>>();
-      
-      progressData.forEach((item: any) => {
-        // Track completed lessons for each module
-        if (item.completed) {
-          if (!completedLessonsByModule.has(item.moduleId)) {
-            completedLessonsByModule.set(item.moduleId, new Set<string>());
+      // Eğer veritabanından modül kilitleri varsa, bunları kullan
+      if (moduleUnlocks && Array.isArray(moduleUnlocks) && moduleUnlocks.length > 0) {
+        // Kilidini açtığımız modülleri işaretle
+        moduleUnlocks.forEach((unlock: any) => {
+          if (unlock.isUnlocked) {
+            const moduleToUnlock = courseData.find(m => m.id === unlock.moduleId);
+            if (moduleToUnlock) {
+              moduleToUnlock.isLocked = false;
+              console.log(`Unlocked module from DB: ${moduleToUnlock.title}`);
+            }
           }
-          completedLessonsByModule.get(item.moduleId)?.add(item.lessonId);
+        });
+      } else {
+        // Veritabanı yoksa, tamamlanan derslere göre kilit durumunu belirle
+        // Tamamlanan dersler için modül takibi
+        const completedLessonsByModule = new Map<string, Set<string>>();
+        
+        progressData.forEach((item: any) => {
+          // Tamamlanan dersleri modül bazında grupla
+          if (item.completed) {
+            if (!completedLessonsByModule.has(item.moduleId)) {
+              completedLessonsByModule.set(item.moduleId, new Set<string>());
+            }
+            completedLessonsByModule.get(item.moduleId)?.add(item.lessonId);
+          }
+        });
+        
+        // Her modül için tamamlanma durumunu kontrol et ve gerekirse sonraki modülü aç
+        for (let i = 0; i < courseData.length; i++) {
+          const module = courseData[i];
+          const moduleCompletedLessons = completedLessonsByModule.get(module.id);
           
-          // Update completed status in the actual data model
+          // Modüldeki tüm dersler tamamlandı mı?
+          const totalLessons = module.lessons.length;
+          const completedCount = moduleCompletedLessons ? moduleCompletedLessons.size : 0;
+          
+          // Eğer modül tamamlandıysa, sonraki modülü aç
+          if (completedCount === totalLessons && totalLessons > 0 && i < courseData.length - 1) {
+            courseData[i + 1].isLocked = false;
+            console.log(`Unlocked next module based on lesson completion: ${courseData[i + 1].title}`);
+          }
+        }
+      }
+      
+      // Tamamlanan dersleri işaretle ve ilerleme bilgilerini güncelle
+      progressData.forEach((item: any) => {
+        // Ders tamamlanma durumunu veri modelinde güncelle
+        if (item.completed) {
           const module = getModuleById(item.moduleId);
           if (module) {
             const lesson = module.lessons.find(l => l.id === item.lessonId);
@@ -86,7 +128,7 @@ export function useProgress() {
           }
         }
         
-        // Update lesson progress
+        // Ders ilerleme bilgilerini güncelle
         lessonProgress[item.lessonId] = {
           completed: item.completed,
           lastAccessed: item.lastAccessed,
@@ -94,37 +136,27 @@ export function useProgress() {
         };
       });
       
-      // Check if each module is completed and update its status
-      for (let i = 0; i < courseData.length; i++) {
-        const module = courseData[i];
-        const moduleCompletedLessons = completedLessonsByModule.get(module.id);
-        
-        // Calculate how many lessons are completed in this module
+      // Her modül için ilerleme yüzdesini hesapla
+      courseData.forEach(module => {
         const totalLessons = module.lessons.length;
-        const completedCount = moduleCompletedLessons ? moduleCompletedLessons.size : 0;
-        const percentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+        const completedLessons = module.lessons.filter(l => l.isComplete).length;
+        const percentage = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
         
-        // Update module progress
         moduleProgress[module.id] = {
-          completed: completedCount === totalLessons,
+          completed: completedLessons === totalLessons && totalLessons > 0,
           percentage: percentage,
           lastAccessedLesson: module.lessons.length > 0 ? module.lessons[0].id : ''
         };
-        
-        // If this module is completed, unlock the next module
-        if (completedCount === totalLessons && i < courseData.length - 1) {
-          courseData[i + 1].isLocked = false;
-          console.log(`Unlocked next module: ${courseData[i + 1].title}`);
-        }
-      }
+      });
       
+      // Genel ilerleme bilgilerini güncelle
       setUserProgress({
         moduleProgress,
         lessonProgress,
-        overallProgress: getOverallProgress() // Will recalculate with updated isComplete values
+        overallProgress: getOverallProgress() // Güncellenmiş isComplete değerleriyle hesaplanır
       });
     }
-  }, [progressData]);
+  }, [progressData, moduleUnlocks]);
 
   // Function to mark a lesson as completed
   const completeLesson = (moduleId: string, lessonId: string) => {
