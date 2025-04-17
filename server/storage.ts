@@ -59,9 +59,22 @@ export class MemStorage implements IStorage {
     let progress = this.progress.get(key);
     
     if (progress) {
-      progress = { ...progress, ...insertProgress };
+      // Ensure completed is always a boolean
+      const completed = insertProgress.completed !== undefined ? insertProgress.completed : progress.completed;
+      progress = { 
+        ...progress, 
+        ...insertProgress,
+        completed 
+      };
     } else {
-      progress = { ...insertProgress, id: this.progressId++ };
+      // Set defaults for required fields
+      progress = { 
+        ...insertProgress, 
+        id: this.progressId++,
+        completed: insertProgress.completed !== undefined ? insertProgress.completed : false,
+        quizScore: insertProgress.quizScore !== undefined ? insertProgress.quizScore : null,
+        lastAccessed: insertProgress.lastAccessed || new Date().toISOString()
+      };
     }
     
     this.progress.set(key, progress);
