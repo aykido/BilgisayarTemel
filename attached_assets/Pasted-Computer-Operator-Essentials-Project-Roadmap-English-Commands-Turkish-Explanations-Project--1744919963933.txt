@@ -1,0 +1,106 @@
+Computer Operator Essentials - Project Roadmap (English Commands + Turkish Explanations)
+📁 Project Setup
+ Create project directory structure — Proje klasör yapısını oluştur
+
+ Set up basic HTML/CSS/JS framework — Temel HTML/CSS/JS altyapısını kur
+
+ Create course navigation system — Kurs için modül gezinme yapısını oluştur
+
+🧱 Course Structure
+ Create main index.html — Ana index.html dosyasını oluştur
+
+ Design course landing page — Kurs açılış sayfasını tasarla
+
+ Create module navigation system — Modül geçiş sistemi oluştur
+
+ Set up individual module pages — Her modül için ayrı sayfa oluştur
+
+📘 Module Content Development
+🧠 Module 1: Basic Computer Knowledge
+ Understanding Hardware Components — Donanım bileşenlerini öğren
+
+ Introduction to Software Types — Yazılım türlerini tanı
+
+ Operating System Basics — İşletim sistemi temelleri
+
+🔐 Module 2: Information Security
+ Basic Concepts of Cybersecurity — Siber güvenliğin temel kavramları
+
+ Password Management — Şifre yönetimi
+
+ Safe Internet Use — Güvenli internet kullanımı
+
+ Recognizing and Avoiding Threats — Tehditleri tanı ve önle
+
+🌐 Module 3: Internet and E-mail Management
+ Using Web Browsers — Web tarayıcılarını kullanma
+
+ Search Techniques and Online Research — Arama teknikleri ve internet araştırması
+
+ Creating and Managing E-mail Accounts — E-posta hesaplarını oluştur ve yönet
+
+ E-mail Etiquette and Attachments — E-posta yazım kuralları ve ekler
+
+📝 Module 4: Microsoft Word (Basic Level)
+ Interface and Navigation — Arayüz ve gezinme
+
+ Text Formatting — Metin biçimlendirme
+
+ Page Layout and Paragraph Settings — Sayfa yapısı ve paragraf ayarları
+
+ Inserting Images and Tables — Resim ve tablo ekleme
+
+📊 Module 5: Microsoft Excel (Basic Level)
+ Understanding Worksheets and Cells — Çalışma sayfaları ve hücreler
+
+ Basic Formulas and Functions — Temel formüller ve fonksiyonlar
+
+ Data Sorting and Filtering — Veri sıralama ve filtreleme
+
+ Creating Simple Charts — Basit grafikler oluşturma
+
+📽️ Module 6: Microsoft PowerPoint (Basic Level)
+ Slide Design and Layout — Slayt tasarımı ve düzeni
+
+ Inserting Text, Images, and Shapes — Metin, görsel ve şekil ekleme
+
+ Slide Transitions and Animations — Slayt geçişleri ve animasyonlar
+
+ Preparing a Presentation for Delivery — Sunumu teslime hazırlama
+
+🎮 Interactive Elements
+ Create quizzes for each module — Her modül için quiz oluştur
+
+ Develop interactive exercises — Etkileşimli egzersizler geliştir
+
+ Implement progress tracking — İlerleme takibi ekle
+
+ Add multimedia elements — Multimedya öğeleri ekle
+
+🌍 Translation
+ Translate Word module to Turkish — Word modülünü Türkçeye çevir
+
+ Translate Excel module to Turkish — Excel modülünü Türkçeye çevir
+
+ Translate PowerPoint module to Turkish — PowerPoint modülünü Türkçeye çevir
+
+🧪 Testing
+ Test course functionality — Kursun işlevselliğini test et
+
+ Test responsive design — Responsive tasarımı test et
+
+ Test interactive elements — Etkileşimli öğeleri test et
+
+ Fix any issues — Hataları düzelt
+
+🚀 Deployment
+ Package course files — Kurs dosyalarını paketle
+
+ Deploy to web server — Web sunucusuna yayına al
+
+ Test deployed version — Yayındaki sürümü test et
+
+📦 Delivery
+ Prepare final documentation — Son kullanıcı dökümanlarını hazırla
+
+ Deliver course to user — Kursu kullanıcıya teslim et
