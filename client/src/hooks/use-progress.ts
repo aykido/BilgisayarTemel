@@ -56,17 +56,34 @@ export function useProgress() {
       const moduleProgress: UserProgressData['moduleProgress'] = {};
       const lessonProgress: UserProgressData['lessonProgress'] = {};
       
-      // Check for completed modules to unlock next modules
-      const completedModuleIds = new Set<string>();
+      // Start by locking all modules except the first one
+      courseData.forEach((module, index) => {
+        if (index === 0) {
+          module.isLocked = false; // First module is always unlocked
+        } else {
+          module.isLocked = true; // Lock all other modules by default
+        }
+      });
+      
+      // Process all completed lessons
+      const completedLessonsByModule = new Map<string, Set<string>>();
       
       progressData.forEach((item: any) => {
-        // Update module progress
-        if (!moduleProgress[item.moduleId]) {
-          moduleProgress[item.moduleId] = {
-            completed: false,
-            percentage: getModuleProgress(item.moduleId),
-            lastAccessedLesson: item.lessonId
-          };
+        // Track completed lessons for each module
+        if (item.completed) {
+          if (!completedLessonsByModule.has(item.moduleId)) {
+            completedLessonsByModule.set(item.moduleId, new Set<string>());
+          }
+          completedLessonsByModule.get(item.moduleId)?.add(item.lessonId);
+          
+          // Update completed status in the actual data model
+          const module = getModuleById(item.moduleId);
+          if (module) {
+            const lesson = module.lessons.find(l => l.id === item.lessonId);
+            if (lesson) {
+              lesson.isComplete = true;
+            }
+          }
         }
         
         // Update lesson progress
@@ -75,37 +92,36 @@ export function useProgress() {
           lastAccessed: item.lastAccessed,
           quizScore: item.quizScore
         };
-        
-        // Check if this is a lesson from a module that might be completed
-        if (item.completed) {
-          const module = getModuleById(item.moduleId);
-          if (module) {
-            // Check if this is the last lesson in the module
-            const lastLesson = module.lessons[module.lessons.length - 1];
-            if (lastLesson && lastLesson.id === item.lessonId) {
-              completedModuleIds.add(item.moduleId);
-            }
-          }
-        }
       });
       
-      // Unlock modules based on completed previous modules
-      completedModuleIds.forEach(completedModuleId => {
-        const completedModuleIndex = courseData.findIndex(m => m.id === completedModuleId);
-        if (completedModuleIndex >= 0 && completedModuleIndex < courseData.length - 1) {
-          // Unlock the next module
-          const nextModule = courseData[completedModuleIndex + 1];
-          if (nextModule) {
-            nextModule.isLocked = false;
-            console.log(`Unlocked module based on progress: ${nextModule.title}`);
-          }
+      // Check if each module is completed and update its status
+      for (let i = 0; i < courseData.length; i++) {
+        const module = courseData[i];
+        const moduleCompletedLessons = completedLessonsByModule.get(module.id);
+        
+        // Calculate how many lessons are completed in this module
+        const totalLessons = module.lessons.length;
+        const completedCount = moduleCompletedLessons ? moduleCompletedLessons.size : 0;
+        const percentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+        
+        // Update module progress
+        moduleProgress[module.id] = {
+          completed: completedCount === totalLessons,
+          percentage: percentage,
+          lastAccessedLesson: module.lessons.length > 0 ? module.lessons[0].id : ''
+        };
+        
+        // If this module is completed, unlock the next module
+        if (completedCount === totalLessons && i < courseData.length - 1) {
+          courseData[i + 1].isLocked = false;
+          console.log(`Unlocked next module: ${courseData[i + 1].title}`);
         }
-      });
+      }
       
       setUserProgress({
         moduleProgress,
         lessonProgress,
-        overallProgress: getOverallProgress()
+        overallProgress: getOverallProgress() // Will recalculate with updated isComplete values
       });
     }
   }, [progressData]);
@@ -116,6 +132,15 @@ export function useProgress() {
     
     // Also update the local state for immediate UI feedback
     setUserProgress(prev => {
+      // Update lesson completion status in the data model
+      const module = getModuleById(moduleId);
+      if (module) {
+        const lesson = module.lessons.find(l => l.id === lessonId);
+        if (lesson) {
+          lesson.isComplete = true;
+        }
+      }
+      
       const updatedLessonProgress = {
         ...prev.lessonProgress,
         [lessonId]: {
@@ -125,7 +150,20 @@ export function useProgress() {
         }
       };
       
+      // Recalculate module percentage with the updated lesson completion status
       const modulePercentage = getModuleProgress(moduleId);
+      
+      // Check if the module is now completed
+      const allLessonsCompleted = module?.lessons.every(lesson => lesson.isComplete) || false;
+      
+      // If module is completed, unlock the next module
+      if (allLessonsCompleted) {
+        const currentModuleIndex = courseData.findIndex(m => m.id === moduleId);
+        if (currentModuleIndex >= 0 && currentModuleIndex < courseData.length - 1) {
+          courseData[currentModuleIndex + 1].isLocked = false;
+          console.log(`Unlocked next module: ${courseData[currentModuleIndex + 1].title}`);
+        }
+      }
       
       return {
         ...prev,
@@ -134,11 +172,12 @@ export function useProgress() {
           ...prev.moduleProgress,
           [moduleId]: {
             ...prev.moduleProgress[moduleId],
+            completed: allLessonsCompleted,
             percentage: modulePercentage,
             lastAccessedLesson: lessonId
           }
         },
-        overallProgress: getOverallProgress()
+        overallProgress: getOverallProgress() // Recalculate overall progress
       };
     });
   };
@@ -149,6 +188,15 @@ export function useProgress() {
     
     // Also update the local state for immediate UI feedback
     setUserProgress(prev => {
+      // Update lesson completion status in the data model
+      const module = getModuleById(moduleId);
+      if (module) {
+        const lesson = module.lessons.find(l => l.id === lessonId);
+        if (lesson) {
+          lesson.isComplete = true;
+        }
+      }
+      
       // Mark the lesson as completed
       const updatedLessonProgress = {
         ...prev.lessonProgress,
@@ -160,30 +208,34 @@ export function useProgress() {
         }
       };
       
-      // Check if this was the last lesson in the module
-      const currentModule = getModuleById(moduleId);
-      if (currentModule) {
-        const lastLessonInModule = currentModule.lessons[currentModule.lessons.length - 1];
-        
-        // If this was the last lesson, unlock the next module
-        if (lastLessonInModule && lastLessonInModule.id === lessonId) {
-          // Find the next module
-          const currentModuleIndex = courseData.findIndex(m => m.id === moduleId);
-          if (currentModuleIndex >= 0 && currentModuleIndex < courseData.length - 1) {
-            // Unlock the next module
-            const nextModule = courseData[currentModuleIndex + 1];
-            if (nextModule) {
-              nextModule.isLocked = false;
-              console.log(`Unlocked next module: ${nextModule.title}`);
-            }
-          }
+      // Check if all lessons in the module are now completed
+      const allLessonsCompleted = module?.lessons.every(lesson => lesson.isComplete) || false;
+      
+      // If module is completed, unlock the next module
+      if (allLessonsCompleted) {
+        const currentModuleIndex = courseData.findIndex(m => m.id === moduleId);
+        if (currentModuleIndex >= 0 && currentModuleIndex < courseData.length - 1) {
+          courseData[currentModuleIndex + 1].isLocked = false;
+          console.log(`Unlocked next module: ${courseData[currentModuleIndex + 1].title}`);
         }
       }
+      
+      // Recalculate module percentage
+      const modulePercentage = getModuleProgress(moduleId);
       
       return {
         ...prev,
         lessonProgress: updatedLessonProgress,
-        overallProgress: getOverallProgress()
+        moduleProgress: {
+          ...prev.moduleProgress,
+          [moduleId]: {
+            ...prev.moduleProgress[moduleId],
+            completed: allLessonsCompleted,
+            percentage: modulePercentage,
+            lastAccessedLesson: lessonId
+          }
+        },
+        overallProgress: getOverallProgress() // Recalculate overall progress
       };
     });
   };
