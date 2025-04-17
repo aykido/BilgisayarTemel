@@ -28,7 +28,13 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
   return (
     <div className={`bg-white shadow-lg md:w-72 lg:w-80 flex-shrink-0 md:h-screen overflow-hidden border-r border-neutral-100 z-10 ${isMobileOpen ? "fixed inset-0" : "hidden md:block"}`}>
       <div className="p-4 bg-primary flex items-center justify-between">
-        <a href="/" className="text-xl font-bold text-white no-underline hover:underline">Bilgisayar Operatör Eğitimi</a>
+        <a href="/" className="flex items-center text-white no-underline">
+          <span className="material-icons mr-2">computer</span>
+          <div className="logo-text">
+            <div className="text-lg font-bold leading-tight">Bilgisayar İşletmenliği</div>
+            <div className="text-sm font-medium leading-tight">Operatörlüğü</div>
+          </div>
+        </a>
         <button onClick={onToggleMobile} className="md:hidden text-white">
           <span className="material-icons">close</span>
         </button>

@@ -40,3 +40,12 @@
   background-color: #94a3b8;
   border-radius: 6px;
 }
+
+/* Logo hover effect */
+a:hover .logo-text {
+  opacity: 0.9;
+}
+
+.logo-text {
+  transition: opacity 0.2s ease-in-out;
+}

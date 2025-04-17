@@ -20,7 +20,7 @@ export default function Home() {
     <Layout>
       <div className="p-4 md:p-8 max-w-6xl mx-auto">
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <h1 className="text-2xl font-bold text-neutral-800 mb-2">Bilgisayar Operatör Eğitimine Hoş Geldiniz</h1>
+          <h1 className="text-2xl font-bold text-neutral-800 mb-2">Bilgisayar İşletmenliği - Operatörlüğü Eğitimine Hoş Geldiniz</h1>
           <p className="text-neutral-600 mb-4">Bu eğitimde temel bilgisayar bilgileri, Microsoft Office uygulamaları ve internet kullanımı hakkında bilgi edineceksiniz.</p>
           
           <div className="flex items-center mt-6">
