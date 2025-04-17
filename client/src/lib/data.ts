@@ -280,7 +280,7 @@ export const courseData: Module[] = [
     title: "Bilgi Güvenliği",
     description: "Siber güvenlik ve güvenli internet kullanımı",
     order: 2,
-    isLocked: true,
+    isLocked: false,
     icon: "lock",
     lessons: [
       {
@@ -453,7 +453,7 @@ export const courseData: Module[] = [
     title: "İnternet ve E-posta",
     description: "İnternet kullanımı ve e-posta yönetimi",
     order: 3,
-    isLocked: true,
+    isLocked: false,
     icon: "language",
     lessons: [
       {
