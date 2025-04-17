@@ -11,16 +11,42 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Set up session middleware
-app.use(session({
-  secret: "bilgisayar-operatoru-app-secret",
-  resave: false,
-  saveUninitialized: false,
+// Ortam değişkenlerinden SESSION_SECRET'ı alın veya varsayılan değer kullanın
+const SESSION_SECRET = process.env.SESSION_SECRET || "bilgisayar-operatoru-app-secret";
+
+// PostgreSQL ile oturum depolamayı desteklemek için
+let sessionStoreConfig: any = {
   store: new MemoryStore({
     checkPeriod: 86400000 // Prune expired entries every 24h
-  }),
+  })
+};
+
+// Eğer DATABASE_URL tanımlıysa ve production ortamındaysa, PostgreSQL session store kullan
+if (process.env.DATABASE_URL && process.env.NODE_ENV === 'production') {
+  try {
+    const pgSession = require('connect-pg-simple')(session);
+    sessionStoreConfig = {
+      store: new pgSession({
+        conString: process.env.DATABASE_URL,
+        tableName: 'session', // Oturum verileri için tablo adı
+        createTableIfMissing: true
+      })
+    };
+    console.log("PostgreSQL session store initialized");
+  } catch (error) {
+    console.error("Failed to initialize PostgreSQL session store:", error);
+    // Hata durumunda memory store'a düş
+  }
+}
+
+// Set up session middleware
+app.use(session({
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  ...sessionStoreConfig,
   cookie: { 
-    secure: false, // Set to true if using HTTPS
+    secure: process.env.NODE_ENV === 'production', // Production'da HTTPS kullan
     maxAge: 7 * 24 * 60 * 60 * 1000 // 1 week
   }
 }));
