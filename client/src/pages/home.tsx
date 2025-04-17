@@ -69,6 +69,10 @@ export default function Home() {
             </div>
           ))}
         </div>
+        
+        <div className="text-center mt-12 mb-4 text-neutral-500 text-sm">
+          Hazırlayan: Aykut BOZALAN
+        </div>
       </div>
     </Layout>
   );
