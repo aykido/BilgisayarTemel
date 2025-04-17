@@ -680,27 +680,761 @@ export const courseData: Module[] = [
     title: "Microsoft Word",
     description: "Microsoft Word temel kullanımı",
     order: 4,
-    isLocked: true,
+    isLocked: false,
     icon: "description",
-    lessons: []
+    lessons: [
+      {
+        id: "word-arayuzu",
+        title: "Microsoft Word Arayüzü",
+        description: "Word'ün arayüzünü ve temel bileşenlerini tanıma",
+        moduleId: "modul-4",
+        order: 1,
+        duration: 20,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "Microsoft Word Arayüzü"
+            },
+            {
+              type: "paragraph",
+              content: "Microsoft Word, metin belgeleri oluşturmak, düzenlemek ve biçimlendirmek için kullanılan profesyonel bir kelime işlemci programıdır. Bu bölümde, Word'ün arayüzünü ve temel bileşenlerini öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "Word Penceresi Bileşenleri",
+              content: "Word Penceresi Bileşenleri"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "menu",
+                  title: "Şerit (Ribbon)",
+                  description: "Word'ün üst kısmında yer alan ve komutları kategorilere ayrılmış sekmelerde sunan menü sistemi."
+                },
+                {
+                  icon: "tab",
+                  title: "Sekmeler",
+                  description: "Dosya, Giriş, Ekle, Tasarım, Düzen gibi farklı işlevlere erişim sağlayan kategoriler."
+                },
+                {
+                  icon: "article",
+                  title: "Belge Alanı",
+                  description: "Metni yazdığınız ve düzenlediğiniz ana çalışma alanı."
+                },
+                {
+                  icon: "rule",
+                  title: "Cetveller",
+                  description: "Belgedeki metin kenar boşluklarını ve sekmeleri ayarlamaya yardımcı olur."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Giriş Sekmesi Bileşenleri",
+              content: "Giriş Sekmesi Bileşenleri"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Grup", "İçerdiği Araçlar"],
+                rows: [
+                  ["Pano", "Kes, Kopyala, Yapıştır, Biçim Boyacısı"],
+                  ["Yazı Tipi", "Yazı tipi, boyut, renk, kalın, italik, altı çizili"],
+                  ["Paragraf", "Madde işaretleri, numaralandırma, girintiler, hizalama"],
+                  ["Stiller", "Önceden tanımlanmış biçimlendirme stilleri"],
+                  ["Düzenleme", "Bul, Değiştir, Seç"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Dosya Operasyonları",
+              content: "Dosya Operasyonları"
+            },
+            {
+              type: "list",
+              content: [
+                "Yeni Belge Oluşturma: Dosya > Yeni",
+                "Belgeyi Kaydetme: Dosya > Kaydet veya Ctrl+S",
+                "Belgeyi Farklı Kaydetme: Dosya > Farklı Kaydet",
+                "Belgeyi Açma: Dosya > Aç veya Ctrl+O",
+                "Belgeyi Yazdırma: Dosya > Yazdır veya Ctrl+P"
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "save",
+                title: "Otomatik Kaydetme",
+                description: "Word, düzenli aralıklarla çalışmanızı otomatik olarak kaydeder. Ancak önemli değişikliklerden sonra manuel olarak Ctrl+S ile kaydetmek iyi bir alışkanlıktır."
+              }
+            }
+          ],
+          exercises: [
+            {
+              id: "word-arayuz-eslestirme",
+              type: "matching",
+              title: "Word Arayüz Bileşenlerini Eşleştirin",
+              description: "Aşağıdaki Word arayüz bileşenlerini işlevleriyle eşleştirin:",
+              items: [
+                {
+                  id: "match-1",
+                  question: "Şerit (Ribbon)",
+                  answer: "Komutları kategorilere ayrılmış sekmelerde sunan menü sistemi"
+                },
+                {
+                  id: "match-2",
+                  question: "Hızlı Erişim Araç Çubuğu",
+                  answer: "En sık kullanılan komutlara hızlı erişim sağlayan araç çubuğu"
+                },
+                {
+                  id: "match-3",
+                  question: "Durum Çubuğu",
+                  answer: "Belge hakkında bilgi veren ve görünüm kontrollerini içeren alt çubuk"
+                }
+              ]
+            }
+          ],
+          quiz: null
+        }
+      },
+      {
+        id: "temel-duzenleme",
+        title: "Temel Metin Düzenleme",
+        description: "Metin girme, düzenleme ve biçimlendirme",
+        moduleId: "modul-4",
+        order: 2,
+        duration: 25,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "Temel Metin Düzenleme"
+            },
+            {
+              type: "paragraph",
+              content: "Microsoft Word'de temel metin düzenleme işlemleri, belge oluşturmanın en önemli parçasıdır. Bu bölümde, metin girme, düzenleme ve biçimlendirme tekniklerini öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "Metin Girme ve Düzenleme",
+              content: "Metin Girme ve Düzenleme"
+            },
+            {
+              type: "paragraph",
+              content: "Belge alanına tıklayıp metin yazmaya başlayabilirsiniz. Word, satır sonuna geldiğinizde otomatik olarak alt satıra geçer. Paragraf oluşturmak için Enter tuşuna basın. Metni silmek için Backspace (geriye) veya Delete (ileriye) tuşlarını kullanabilirsiniz."
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "content_copy",
+                  title: "Kes, Kopyala, Yapıştır",
+                  description: "Metni seçin ve Ctrl+X (kes), Ctrl+C (kopyala), Ctrl+V (yapıştır) kısayollarını kullanın."
+                },
+                {
+                  icon: "undo",
+                  title: "Geri Al ve Yinele",
+                  description: "Hata yaptığınızda Ctrl+Z (geri al) veya Ctrl+Y (yinele) kısayollarını kullanın."
+                },
+                {
+                  icon: "find_replace",
+                  title: "Bul ve Değiştir",
+                  description: "Ctrl+F (bul) veya Ctrl+H (değiştir) ile belge içinde arama yapabilirsiniz."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Metin Biçimlendirme",
+              content: "Metin Biçimlendirme"
+            },
+            {
+              type: "paragraph",
+              content: "Metni biçimlendirerek belgenizin görünümünü iyileştirebilirsiniz. Bunun için önce biçimlendirilecek metni seçmeniz gerekir."
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Biçimlendirme", "Kısayol", "Şerit Konumu"],
+                rows: [
+                  ["Kalın", "Ctrl+B", "Giriş > Yazı Tipi"],
+                  ["İtalik", "Ctrl+I", "Giriş > Yazı Tipi"],
+                  ["Altı Çizili", "Ctrl+U", "Giriş > Yazı Tipi"],
+                  ["Yazı Tipi Değiştirme", "-", "Giriş > Yazı Tipi"],
+                  ["Yazı Boyutu Değiştirme", "-", "Giriş > Yazı Tipi"],
+                  ["Metin Rengi Değiştirme", "-", "Giriş > Yazı Tipi"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Paragraf Biçimlendirme",
+              content: "Paragraf Biçimlendirme"
+            },
+            {
+              type: "list",
+              content: [
+                "Hizalama: Sola, Sağa, Ortaya, İki Yana Yasla (Giriş > Paragraf)",
+                "Girinti: Paragrafın Sol ve Sağ Girintileri (Giriş > Paragraf)",
+                "Satır Aralığı: Paragraf içi ve paragraflar arası boşluk (Giriş > Paragraf)",
+                "Madde İşaretleri ve Numaralandırma: Liste oluşturma (Giriş > Paragraf)"
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "format_paint",
+                title: "Biçim Boyacısı",
+                description: "Bir metnin biçimini başka bir metne hızlıca uygulamak için Biçim Boyacısı aracını kullanabilirsiniz. Biçimlendirmesini kopyalamak istediğiniz metni seçin, Biçim Boyacısına tıklayın ve ardından biçimlendirilecek metni seçin."
+              }
+            }
+          ],
+          exercises: [],
+          quiz: {
+            id: "modul-4-quiz",
+            title: "Microsoft Word Quiz",
+            description: "Microsoft Word modülünü tamamlamak için testi çözün.",
+            questions: [
+              {
+                id: "q1",
+                question: "Microsoft Word'de metni kalın yapmak için hangi kısayol tuşu kullanılır?",
+                options: ["Ctrl+K", "Ctrl+I", "Ctrl+B", "Ctrl+U"],
+                correctAnswer: 2
+              },
+              {
+                id: "q2",
+                question: "Aşağıdakilerden hangisi Word'de paragraf hizalama seçeneklerinden biri değildir?",
+                options: ["Sola Yasla", "Ortala", "Dikey Yasla", "İki Yana Yasla"],
+                correctAnswer: 2
+              },
+              {
+                id: "q3",
+                question: "Word'de bir belgeyi kaydetmek için kullanılan kısayol nedir?",
+                options: ["Ctrl+P", "Ctrl+S", "Ctrl+O", "Ctrl+N"],
+                correctAnswer: 1
+              },
+              {
+                id: "q4",
+                question: "Word'de yaptığınız son işlemi geri almak için hangi kısayol kullanılır?",
+                options: ["Ctrl+Z", "Ctrl+Y", "Ctrl+X", "Ctrl+A"],
+                correctAnswer: 0
+              }
+            ]
+          }
+        }
+      }
+    ]
   },
   {
     id: "modul-5",
     title: "Microsoft Excel",
     description: "Microsoft Excel temel kullanımı",
     order: 5,
-    isLocked: true,
+    isLocked: false,
     icon: "table_chart",
-    lessons: []
+    lessons: [
+      {
+        id: "excel-arayuzu",
+        title: "Microsoft Excel Arayüzü",
+        description: "Excel'in temel arayüzünü ve bileşenlerini tanıma",
+        moduleId: "modul-5",
+        order: 1,
+        duration: 20,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "Microsoft Excel Arayüzü"
+            },
+            {
+              type: "paragraph",
+              content: "Microsoft Excel, elektronik tablolar oluşturmak, verileri düzenlemek ve analiz etmek için kullanılan güçlü bir programdır. Bu bölümde, Excel'in arayüzünü ve temel bileşenlerini öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "Excel Penceresi Bileşenleri",
+              content: "Excel Penceresi Bileşenleri"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "menu",
+                  title: "Şerit (Ribbon)",
+                  description: "Excel'in üst kısmında yer alan ve komutları kategorilere ayrılmış sekmelerde sunan menü sistemi."
+                },
+                {
+                  icon: "grid_3x3",
+                  title: "Çalışma Alanı",
+                  description: "Hücrelerden oluşan ve verileri girdiğiniz ana tablo alanı."
+                },
+                {
+                  icon: "tab",
+                  title: "Çalışma Sayfası Sekmeleri",
+                  description: "Aynı dosya içinde birden fazla çalışma sayfası oluşturmanızı sağlayan sekmeler."
+                },
+                {
+                  icon: "functions",
+                  title: "Formül Çubuğu",
+                  description: "Hücrelere veri ve formül girişi yapabileceğiniz alan."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Hücre, Satır ve Sütunlar",
+              content: "Hücre, Satır ve Sütunlar"
+            },
+            {
+              type: "paragraph",
+              content: "Excel, satır ve sütunlardan oluşan bir tablo yapısına sahiptir. Satırlar 1, 2, 3... şeklinde numaralandırılırken, sütunlar A, B, C... harfleriyle isimlendirilir. Her bir hücre, bir sütun harfi ve satır numarasının birleşimiyle adlandırılır (örneğin A1, B5, C10)."
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Terim", "Açıklama"],
+                rows: [
+                  ["Hücre", "Veri girebileceğiniz her bir kare alan (Örneğin: A1, B2)"],
+                  ["Satır", "Yatay hücre dizisi, 1'den başlayarak numaralandırılır"],
+                  ["Sütun", "Dikey hücre dizisi, A'dan başlayarak harflendirilir"],
+                  ["Hücre Aralığı", "Birden fazla hücrenin seçilmiş hali (Örneğin: A1:C3)"],
+                  ["Çalışma Sayfası", "Her bir sekmedeki tablo yapısı"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Veri Girişi ve Düzenleme",
+              content: "Veri Girişi ve Düzenleme"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de bir hücreye tıklayarak veri girişi yapabilirsiniz. Veri türleri sayı, metin, tarih, saat veya formül olabilir. Bir hücreye giriş yapmak için hücreye tıklayın ve yazın, ardından Enter tuşuna basın veya başka bir hücreye tıklayın."
+            },
+            {
+              type: "info",
+              content: {
+                icon: "tips_and_updates",
+                title: "Hızlı Gezinme İpuçları",
+                description: "Hücreler arasında hızlıca gezinmek için ok tuşlarını kullanabilirsiniz. Bir satırın sonuna gitmek için End + sağ ok, bir sütunun sonuna gitmek için End + aşağı ok tuş kombinasyonlarını kullanabilirsiniz."
+              }
+            }
+          ],
+          exercises: [
+            {
+              id: "excel-arayuz-eslestirme",
+              type: "matching",
+              title: "Excel Arayüz Bileşenlerini Eşleştirin",
+              description: "Aşağıdaki Excel arayüz bileşenlerini işlevleriyle eşleştirin:",
+              items: [
+                {
+                  id: "match-1",
+                  question: "Formül Çubuğu",
+                  answer: "Hücrelere formüller ve veriler girmek için kullanılan alan"
+                },
+                {
+                  id: "match-2",
+                  question: "Sütun Başlıkları",
+                  answer: "A, B, C şeklinde harflerle isimlendirilen dikey bölümler"
+                },
+                {
+                  id: "match-3",
+                  question: "Sayfa Sekmeleri",
+                  answer: "Aynı dosyada birden fazla tablo oluşturmayı sağlayan sekmeler"
+                }
+              ]
+            }
+          ],
+          quiz: null
+        }
+      },
+      {
+        id: "temel-formuller",
+        title: "Temel Formüller ve Fonksiyonlar",
+        description: "Excel'de formül oluşturma ve temel fonksiyonları kullanma",
+        moduleId: "modul-5",
+        order: 2,
+        duration: 30,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "Temel Formüller ve Fonksiyonlar"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'in en güçlü yönlerinden biri, formüller ve fonksiyonlar kullanarak veriler üzerinde hesaplamalar yapabilmesidir. Bu bölümde, temel formül yazımını ve en çok kullanılan fonksiyonları öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "Formül Yazma Temelleri",
+              content: "Formül Yazma Temelleri"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de tüm formüller eşittir (=) işareti ile başlar. Formüller hücre referansları, işlemciler, fonksiyonlar ve sabit değerler içerebilir. Örneğin: =A1+B1 veya =TOPLA(A1:A10)"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "add",
+                  title: "Aritmetik İşlemciler",
+                  description: "+ (toplama), - (çıkarma), * (çarpma), / (bölme), ^ (üs alma)"
+                },
+                {
+                  icon: "compare_arrows",
+                  title: "Karşılaştırma İşlemcileri",
+                  description: "= (eşittir), > (büyüktür), < (küçüktür), >= (büyük eşittir), <= (küçük eşittir), <> (eşit değildir)"
+                },
+                {
+                  icon: "cell_tower",
+                  title: "Hücre Referansları",
+                  description: "A1 (tek hücre), A1:C5 (hücre aralığı), $A$1 (mutlak referans)"
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Sık Kullanılan Fonksiyonlar",
+              content: "Sık Kullanılan Fonksiyonlar"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Fonksiyon", "Açıklama", "Örnek"],
+                rows: [
+                  ["TOPLA", "Belirtilen hücreleri toplar", "=TOPLA(A1:A10)"],
+                  ["ORTALAMA", "Belirtilen hücrelerin ortalamasını alır", "=ORTALAMA(B1:B20)"],
+                  ["MIN", "En küçük değeri bulur", "=MIN(C1:C15)"],
+                  ["MAKS", "En büyük değeri bulur", "=MAKS(D1:D15)"],
+                  ["EĞER", "Belirtilen koşula göre farklı değerler döndürür", "=EĞER(A1>10,\"Yüksek\",\"Düşük\")"],
+                  ["SAY", "Sayısal değer içeren hücreleri sayar", "=SAY(A1:A20)"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Hücre Referansları",
+              content: "Hücre Referansları"
+            },
+            {
+              type: "list",
+              content: [
+                "Göreceli Referans: A1, B2 - formül kopyalandığında referans değişir",
+                "Mutlak Referans: $A$1, $B$2 - formül kopyalandığında referans değişmez",
+                "Karma Referans: $A1, B$2 - ya satır ya da sütun sabittir"
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "info",
+                title: "Formül Kopyalama",
+                description: "Bir formülü diğer hücrelere kopyalamak için, formülü içeren hücrenin sağ alt köşesindeki doldurma kolunu (fill handle) tutup sürükleyebilirsiniz. Göreceli referanslar otomatik olarak güncellenecektir."
+              }
+            }
+          ],
+          exercises: [],
+          quiz: {
+            id: "modul-5-quiz",
+            title: "Microsoft Excel Quiz",
+            description: "Microsoft Excel modülünü tamamlamak için testi çözün.",
+            questions: [
+              {
+                id: "q1",
+                question: "Excel'de bir formül hangi karakterle başlar?",
+                options: ["#", "=", "@", "$"],
+                correctAnswer: 1
+              },
+              {
+                id: "q2",
+                question: "A1'den A10'a kadar olan hücrelerin toplamını almak için hangi formül kullanılır?",
+                options: ["=TOPLA(A1,A10)", "=TOPLA(A1:A10)", "=TOPLAM(A1-A10)", "=A1+A2+A3+A4+A5+A6+A7+A8+A9+A10"],
+                correctAnswer: 1
+              },
+              {
+                id: "q3",
+                question: "Excel'de $B$5 ifadesi neyi ifade eder?",
+                options: ["B5 hücresinin para birimi formatında olduğunu", "B5 hücresine metin girilmesi gerektiğini", "B5 hücresinin mutlak referans olduğunu", "B5 hücresinin kilitli olduğunu"],
+                correctAnswer: 2
+              },
+              {
+                id: "q4",
+                question: "Aşağıdakilerden hangisi Excel'de bir satır ve bir sütunun kesişim noktasına verilen addır?",
+                options: ["Hücre", "Kesişim", "Referans", "Aralık"],
+                correctAnswer: 0
+              }
+            ]
+          }
+        }
+      }
+    ]
   },
   {
     id: "modul-6",
     title: "Microsoft PowerPoint",
     description: "Microsoft PowerPoint temel kullanımı",
     order: 6,
-    isLocked: true,
+    isLocked: false,
     icon: "slideshow",
-    lessons: []
+    lessons: [
+      {
+        id: "powerpoint-arayuzu",
+        title: "PowerPoint Arayüzü",
+        description: "PowerPoint'in temel arayüzünü ve bileşenlerini tanıma",
+        moduleId: "modul-6",
+        order: 1,
+        duration: 20,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "PowerPoint Arayüzü"
+            },
+            {
+              type: "paragraph",
+              content: "Microsoft PowerPoint, etkileyici sunumlar oluşturmak ve sunmak için kullanılan profesyonel bir sunum programıdır. Bu bölümde, PowerPoint'in arayüzünü ve temel bileşenlerini öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "PowerPoint Penceresi Bileşenleri",
+              content: "PowerPoint Penceresi Bileşenleri"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "menu",
+                  title: "Şerit (Ribbon)",
+                  description: "PowerPoint'in üst kısmında yer alan ve komutları kategorilere ayrılmış sekmelerde sunan menü sistemi."
+                },
+                {
+                  icon: "slideshow",
+                  title: "Slayt Görünümü",
+                  description: "Slaytlarınızı düzenleyebileceğiniz ana çalışma alanı."
+                },
+                {
+                  icon: "view_carousel",
+                  title: "Slayt Bölmesi",
+                  description: "Sol tarafta tüm slaytların küçük resimlerini gösteren panel."
+                },
+                {
+                  icon: "note_alt",
+                  title: "Notlar Bölmesi",
+                  description: "Slaytla ilgili notlar ekleyebileceğiniz alan."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Görünüm Seçenekleri",
+              content: "Görünüm Seçenekleri"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Görünüm", "Açıklama"],
+                rows: [
+                  ["Normal", "Standart düzenleme görünümü"],
+                  ["Slayt Sıralayıcısı", "Tüm slaytları yan yana görüntüler"],
+                  ["Okuma Görünümü", "Sunumu tam ekran gösterir"],
+                  ["Slayt Gösterisi", "Tam ekran sunum başlatır"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Dosya İşlemleri",
+              content: "Dosya İşlemleri"
+            },
+            {
+              type: "list",
+              content: [
+                "Yeni Sunum Oluşturma: Dosya > Yeni",
+                "Sunumu Kaydetme: Dosya > Kaydet veya Ctrl+S",
+                "Sunumu Açma: Dosya > Aç veya Ctrl+O",
+                "Sunumu Yazdırma: Dosya > Yazdır veya Ctrl+P",
+                "Sunumu PDF olarak Dışa Aktarma: Dosya > Dışa Aktar > PDF/XPS Belgesi Oluştur"
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "auto_awesome",
+                title: "Tasarım Fikirleri",
+                description: "PowerPoint'in Tasarım Fikirleri özelliği, slaytlarınıza içerik ekledikçe otomatik olarak profesyonel düzen önerileri sunar. Tasarım sekmesindeki 'Tasarım Fikirleri' düğmesine tıklayarak bu önerileri görebilirsiniz."
+              }
+            }
+          ],
+          exercises: [
+            {
+              id: "powerpoint-arayuz-eslestirme",
+              type: "matching",
+              title: "PowerPoint Arayüz Bileşenlerini Eşleştirin",
+              description: "Aşağıdaki PowerPoint arayüz bileşenlerini işlevleriyle eşleştirin:",
+              items: [
+                {
+                  id: "match-1",
+                  question: "Slayt Sıralayıcısı",
+                  answer: "Tüm slaytları küçük resimler olarak yan yana görüntüler"
+                },
+                {
+                  id: "match-2",
+                  question: "Notlar Bölmesi",
+                  answer: "Sunum sırasında hatırlamak istediğiniz bilgileri yazabileceğiniz alan"
+                },
+                {
+                  id: "match-3",
+                  question: "Animasyon Bölmesi",
+                  answer: "Nesnelere uygulanan animasyonları düzenleme ve zamanlamayı ayarlama alanı"
+                }
+              ]
+            }
+          ],
+          quiz: null
+        }
+      },
+      {
+        id: "slayt-olusturma",
+        title: "Slayt Oluşturma ve Düzenleme",
+        description: "Slayt oluşturma, metin ve nesneler ekleme",
+        moduleId: "modul-6",
+        order: 2,
+        duration: 25,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "Slayt Oluşturma ve Düzenleme"
+            },
+            {
+              type: "paragraph",
+              content: "Etkili bir sunum oluşturmak için, iyi tasarlanmış slaytlar gereklidir. Bu bölümde, slayt oluşturma, metin ve nesneler ekleme, düzenleme tekniklerini öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "Yeni Slayt Ekleme",
+              content: "Yeni Slayt Ekleme"
+            },
+            {
+              type: "paragraph",
+              content: "Yeni bir slayt eklemek için Giriş sekmesinde 'Yeni Slayt' düğmesine tıklayabilirsiniz. Düğmenin alt kısmındaki ok işaretine tıklayarak farklı slayt düzenleri arasından seçim yapabilirsiniz."
+            },
+            {
+              type: "heading",
+              title: "Metin Ekleme ve Düzenleme",
+              content: "Metin Ekleme ve Düzenleme"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "title",
+                  title: "Başlık ve Alt Başlık",
+                  description: "Slaytın üst kısmındaki metin kutularına tıklayarak başlık ve alt başlık ekleyebilirsiniz."
+                },
+                {
+                  icon: "format_list_bulleted",
+                  title: "Madde İşaretli Listeler",
+                  description: "Metni seçip Giriş sekmesindeki madde işaretleri düğmesine tıklayarak liste oluşturabilirsiniz."
+                },
+                {
+                  icon: "text_fields",
+                  title: "Metin Kutusu",
+                  description: "Ekle > Metin Kutusu seçeneğiyle istediğiniz yere metin kutusu ekleyebilirsiniz."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Nesne Ekleme",
+              content: "Nesne Ekleme"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Nesne Türü", "Ekleme Yolu"],
+                rows: [
+                  ["Resim", "Ekle > Resimler > Bu Cihazdan"],
+                  ["Şekil", "Ekle > Şekiller"],
+                  ["SmartArt", "Ekle > SmartArt"],
+                  ["Grafik", "Ekle > Grafik"],
+                  ["Tablo", "Ekle > Tablo"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Slayt Geçişleri ve Animasyonlar",
+              content: "Slayt Geçişleri ve Animasyonlar"
+            },
+            {
+              type: "paragraph",
+              content: "Slayt geçişleri, bir slayttan diğerine geçerken uygulanan görsel efektlerdir. Animasyonlar ise slayt içindeki nesnelerin hareket etmesini sağlayan efektlerdir."
+            },
+            {
+              type: "list",
+              content: [
+                "Slayt Geçişi Ekleme: Geçişler sekmesi > istediğiniz geçiş efektini seçin",
+                "Animasyon Ekleme: Animasyonlar sekmesi > nesneyi seçin > istediğiniz animasyonu seçin",
+                "Zamanlama Ayarları: Geçiş veya animasyon sekmesinde süre ve zamanlama seçeneklerini ayarlayın",
+                "Animasyon Sırası: Animasyon Bölmesi'ni kullanarak animasyonların sırasını düzenleyin"
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "warning",
+                title: "Dikkat!",
+                description: "Aşırı geçiş ve animasyon kullanımı sunumun profesyonelliğini azaltabilir. Sade ve tutarlı bir yaklaşım izleyin. Tüm sunumda aynı geçiş stilini kullanmak daha profesyonel bir görünüm sağlar."
+              }
+            }
+          ],
+          exercises: [],
+          quiz: {
+            id: "modul-6-quiz",
+            title: "Microsoft PowerPoint Quiz",
+            description: "Microsoft PowerPoint modülünü tamamlamak için testi çözün.",
+            questions: [
+              {
+                id: "q1",
+                question: "PowerPoint'te yeni bir slayt eklemek için hangi sekme kullanılır?",
+                options: ["Dosya", "Giriş", "Tasarım", "Geçişler"],
+                correctAnswer: 1
+              },
+              {
+                id: "q2",
+                question: "Aşağıdakilerden hangisi PowerPoint'te bir görünüm türü değildir?",
+                options: ["Normal", "Slayt Sıralayıcısı", "Slayt Düzenleyici", "Okuma Görünümü"],
+                correctAnswer: 2
+              },
+              {
+                id: "q3",
+                question: "PowerPoint'te slaytlar arasındaki geçiş efektleri hangi sekmeden ayarlanır?",
+                options: ["Giriş", "Animasyonlar", "Geçişler", "Efektler"],
+                correctAnswer: 2
+              },
+              {
+                id: "q4",
+                question: "PowerPoint sunumunu başlatmak için kullanılan kısayol tuşu hangisidir?",
+                options: ["F1", "F5", "Ctrl+P", "Ctrl+S"],
+                correctAnswer: 1
+              }
+            ]
+          }
+        }
+      }
+    ]
   }
 ];
 
