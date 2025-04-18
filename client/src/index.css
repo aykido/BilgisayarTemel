@@ -41,6 +41,19 @@
   border-radius: 6px;
 }
 
+/* Mobile sidebar fixes */
+@media (max-width: 768px) {
+  .module-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .module-content li span {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
 /* Logo hover effect */
 a:hover .logo-text {
   opacity: 0.9;

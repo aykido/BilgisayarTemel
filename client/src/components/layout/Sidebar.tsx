@@ -57,7 +57,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
   const isLessonActive = (lessonId: string) => location.includes(`/ders/${lessonId}`);
   
   return (
-    <div className={`bg-white shadow-lg md:w-72 lg:w-80 flex-shrink-0 md:h-screen overflow-hidden border-r border-neutral-100 z-10 ${isMobileOpen ? "fixed inset-0" : "hidden md:block"}`}>
+    <div className={`bg-white shadow-lg md:w-72 lg:w-80 flex-shrink-0 md:h-screen border-r border-neutral-100 z-10 ${isMobileOpen ? "fixed inset-0 overflow-auto" : "hidden md:block"}`}>
       <div className="p-4 bg-primary flex items-center justify-between">
         <a href="/" className="flex items-center text-white no-underline">
           <span className="material-icons mr-2">computer</span>
@@ -71,7 +71,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
         </button>
       </div>
       
-      <div className="h-[calc(100vh-64px)] overflow-y-auto custom-scrollbar">
+      <div className="md:h-[calc(100vh-64px)] overflow-y-auto custom-scrollbar">
         <div className="p-4 mb-2">
           <p className="text-sm text-neutral-600 font-medium">Ders Modülleri</p>
         </div>
@@ -97,13 +97,18 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
               </div>
               
               {expandedModules.includes(module.id) && (
-                <div className="module-content pl-10 pr-3 py-1">
+                <div className="module-content pl-10 pr-3 py-1 max-w-full">
                   <ul className="space-y-1">
                     {module.lessons.map((lesson) => (
                       <li 
                         key={lesson.id}
                         className={`py-1.5 text-sm flex items-center hover:text-primary cursor-pointer ${isLessonActive(lesson.id) ? "bg-neutral-100 rounded-md px-2 border-l-2 border-primary" : ""}`}
-                        onClick={() => navigate(`/modul/${module.id}/ders/${lesson.id}`)}
+                        onClick={() => {
+                          navigate(`/modul/${module.id}/ders/${lesson.id}`);
+                          if (isMobileOpen) {
+                            onToggleMobile();
+                          }
+                        }}
                       >
                         <span className={`material-icons mr-2 text-sm ${
                           isLessonActive(lesson.id) 
@@ -119,7 +124,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
                           isLessonActive(lesson.id) 
                             ? "text-primary font-medium" 
                             : "text-neutral-600"
-                        }`}>
+                        } truncate`}>
                           {lesson.title}
                         </span>
                       </li>
