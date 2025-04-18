@@ -257,13 +257,22 @@ export function useProgress() {
         if (currentModuleIndex >= 0 && currentModuleIndex < courseData.length - 1) {
           // Bu, UI'da modülü hemen erişilebilir göstermek için
           // Asıl kilit açma sunucuda gerçekleşecek, refresh'te de gösterilecek
-          courseData[currentModuleIndex + 1].isLocked = false;
-          console.log(`Unlocked next module: ${courseData[currentModuleIndex + 1].title}`);
+          const nextModule = courseData[currentModuleIndex + 1];
+          nextModule.isLocked = false;
+          console.log(`Unlocked next module: ${nextModule.title}`);
           
-          // İşlem tamamlandıktan 1 saniye sonra modül kilit durumunu yenile
+          // İşlem tamamlandıktan sonra modül kilit durumunu yenile
           setTimeout(() => {
             queryClient.invalidateQueries({ queryKey: ['/api/module-unlocks'] });
-          }, 1000);
+            
+            // Kullanıcıyı bir sonraki modülün ilk dersine yönlendir
+            // Quiz durumundan kurtulması için bunu biraz gecikmeli olarak yap
+            if (nextModule && nextModule.lessons.length > 0) {
+              const nextModuleFirstLesson = nextModule.lessons[0];
+              console.log(`Navigating to next module's first lesson: ${nextModuleFirstLesson.id}`);
+              window.location.href = `/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
+            }
+          }, 2000); // 2 saniye bekle
         }
       }
       

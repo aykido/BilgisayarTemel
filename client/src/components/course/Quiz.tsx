@@ -50,7 +50,13 @@ export function Quiz({ quiz, onComplete, onBack }: QuizProps) {
     
     setScore(correctAnswers);
     setIsSubmitted(true);
+    
+    // Quiz tamamlandığında sonucu bildir ve iki saniye bekledikten sonra
+    // kullanıcıyı bir sonraki modülün ders içeriğine yönlendir
     onComplete(correctAnswers, quiz.questions.length);
+    
+    // Not: onComplete fonksiyonu modül kilidini açacak ve ilerlemeyi güncelleyecek
+    // Sonraki derse geçiş UseProgress hook'undaki navigasyon fonksiyonu ile yapılacak
   };
   
   const isAllAnswered = !selectedAnswers.includes(-1);
