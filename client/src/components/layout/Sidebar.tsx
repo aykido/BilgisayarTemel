@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { courseData } from "@/lib/data";
 import useProgress from "@/hooks/use-progress";
 import { Module } from "@/lib/types";
+import { useQuery } from "@tanstack/react-query";
 
 interface SidebarProps {
   isMobileOpen: boolean;
@@ -13,6 +14,40 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
   const [expandedModules, setExpandedModules] = useState<string[]>([]);
   const [location, navigate] = useLocation();
   const { overallProgress } = useProgress();
+  
+  // API'den modül kilit durumlarını al ve client-side'daki data ile senkronize et
+  const { data: moduleUnlocks } = useQuery({
+    queryKey: ['/api/module-unlocks'],
+    refetchOnWindowFocus: true,
+    refetchInterval: 5000  // Her 5 saniyede bir yenile
+  });
+  
+  // Modül kilit durumlarını güncelle
+  useEffect(() => {
+    if (moduleUnlocks && moduleUnlocks.length > 0) {
+      // API'den gelen kilit durumlarına göre lokal veriyi güncelle
+      moduleUnlocks.forEach((unlock: any) => {
+        const moduleIndex = courseData.findIndex(m => m.id === unlock.moduleId);
+        if (moduleIndex >= 0 && unlock.isUnlocked) {
+          courseData[moduleIndex].isLocked = false;
+          console.log(`Unlocked module from DB: ${courseData[moduleIndex].title}`);
+        }
+      });
+    }
+  }, [moduleUnlocks]);
+  
+  // Aktif modülleri otomatik genişlet
+  useEffect(() => {
+    if (location) {
+      const match = location.match(/\/modul\/([^\/]+)/);
+      if (match && match[1]) {
+        const activeModuleId = match[1];
+        if (!expandedModules.includes(activeModuleId)) {
+          setExpandedModules(prev => [...prev, activeModuleId]);
+        }
+      }
+    }
+  }, [location]);
   
   const toggleModule = (moduleId: string) => {
     setExpandedModules(prev => 
