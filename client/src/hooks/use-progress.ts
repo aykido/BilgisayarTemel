@@ -4,6 +4,10 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { getModuleById, getLessonById, getModuleProgress, getOverallProgress, courseData } from "@/lib/data";
 import { UserProgressData } from "@/lib/types";
 
+// Local storage anahtarları
+const PROGRESS_STORAGE_KEY = "user_progress_data";
+const MODULE_UNLOCKS_KEY = "module_unlocks_data";
+
 export function useProgress() {
   const [userProgress, setUserProgress] = useState<UserProgressData>({
     moduleProgress: {},
@@ -216,6 +220,11 @@ export function useProgress() {
 
   // Function to submit a quiz result and unlock next module
   const submitQuizResult = (moduleId: string, lessonId: string, score: number, totalQuestions: number) => {
+    // Deploy modunda olup olmadığımızı kontrol et
+    const isDeployment = window.location.hostname.includes('.replit.app') || 
+                         window.location.hostname.includes('.repl.co');
+    console.log(`Environment: ${isDeployment ? 'Deployment' : 'Development'}`);
+    
     // Önce API'ye quiz sonucunu gönder
     saveQuizResult({ moduleId, lessonId, score, totalQuestions });
     
@@ -284,8 +293,10 @@ export function useProgress() {
                   const nextModuleFirstLesson = nextModule.lessons[0];
                   console.log(`Navigating to next module's first lesson: ${nextModuleFirstLesson.id}`);
                   setTimeout(() => {
-                    window.location.href = `/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
-                  }, 2000); // 2 saniye bekle
+                    // Deployment ortamında tam yolu kullan (hostname dahil)
+                    const baseUrl = window.location.origin;
+                    window.location.href = `${baseUrl}/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
+                  }, 3000); // 3 saniye bekle - daha uzun süre ver
                 }
               }
             } catch (error) {
