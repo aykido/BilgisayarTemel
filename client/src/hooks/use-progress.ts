@@ -216,10 +216,14 @@ export function useProgress() {
 
   // Function to submit a quiz result and unlock next module
   const submitQuizResult = (moduleId: string, lessonId: string, score: number, totalQuestions: number) => {
+    // Önce API'ye quiz sonucunu gönder
     saveQuizResult({ moduleId, lessonId, score, totalQuestions });
     
-    // Also update the local state for immediate UI feedback
+    // Yerel durum için de güncelleme yap
     setUserProgress(prev => {
+      // Veritabanındaki güncellemeler için kritik olan noktalar:
+      console.log(`Quiz completed for module: ${moduleId}, lesson: ${lessonId}`);
+      
       // Update lesson completion status in the data model
       const module = getModuleById(moduleId);
       if (module) {
@@ -243,12 +247,23 @@ export function useProgress() {
       // Check if all lessons in the module are now completed
       const allLessonsCompleted = module?.lessons.every(lesson => lesson.isComplete) || false;
       
-      // If module is completed, unlock the next module
+      // Tüm dersler tamamlandıysa, modül tamamlandı olarak işaretle
+      // ve bir sonraki modül kilidini aç - NOT: Asıl kilit açma veritabanında gerçekleşecek
       if (allLessonsCompleted) {
+        console.log(`All lessons completed in module: ${moduleId}`);
+        
+        // Bir sonraki modülü bul ve kilitli değilse göster
         const currentModuleIndex = courseData.findIndex(m => m.id === moduleId);
         if (currentModuleIndex >= 0 && currentModuleIndex < courseData.length - 1) {
+          // Bu, UI'da modülü hemen erişilebilir göstermek için
+          // Asıl kilit açma sunucuda gerçekleşecek, refresh'te de gösterilecek
           courseData[currentModuleIndex + 1].isLocked = false;
           console.log(`Unlocked next module: ${courseData[currentModuleIndex + 1].title}`);
+          
+          // İşlem tamamlandıktan 1 saniye sonra modül kilit durumunu yenile
+          setTimeout(() => {
+            queryClient.invalidateQueries({ queryKey: ['/api/module-unlocks'] });
+          }, 1000);
         }
       }
       

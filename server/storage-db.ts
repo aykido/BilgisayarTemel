@@ -72,23 +72,35 @@ export class DatabaseStorage implements IStorage {
   }
 
   async saveQuizResult(result: InsertQuizResult): Promise<QuizResult> {
-    const [quizResult] = await db.insert(quizResults)
-      .values(result)
-      .returning();
-
-    // Quiz sonucunu kullanıcı ilerlemesi olarak da kaydet
-    await this.updateUserProgress({
-      userId: result.userId,
-      moduleId: result.moduleId,
-      lessonId: result.lessonId,
-      completed: true,
-      lastAccessed: result.completedAt
-    });
-
-    // Modül içindeki tüm derslerin tamamlanıp tamamlanmadığını kontrol et
-    await this.checkAndUnlockNextModule(result.userId, result.moduleId);
-
-    return quizResult;
+    try {
+      console.log(`Saving quiz result for module: ${result.moduleId}, lesson: ${result.lessonId}`);
+      
+      const [quizResult] = await db.insert(quizResults)
+        .values(result)
+        .returning();
+  
+      console.log(`Quiz result saved, now updating lesson progress...`);
+      
+      // Quiz sonucunu kullanıcı ilerlemesi olarak da kaydet
+      await this.updateUserProgress({
+        userId: result.userId,
+        moduleId: result.moduleId,
+        lessonId: result.lessonId,
+        completed: true,
+        lastAccessed: result.completedAt
+      });
+  
+      console.log(`Lesson progress updated, now checking if we should unlock next module...`);
+      
+      // ÖNEMLİ: Quiz tamamlandığında modülün kilidini değiştirelim
+      // Bu tüm quizler modüllerin son dersinde olduğunu varsayarak yapılmıştır
+      await this.checkAndUnlockNextModule(result.userId, result.moduleId);
+  
+      return quizResult;
+    } catch (error) {
+      console.error('Error in saveQuizResult:', error);
+      throw error;
+    }
   }
 
   async getQuizResults(userId: number, moduleId?: string): Promise<QuizResult[]> {
@@ -169,39 +181,53 @@ export class DatabaseStorage implements IStorage {
 
   // Yardımcı fonksiyon: Bir modüldeki tüm dersler tamamlandıysa bir sonraki modülü aç
   private async checkAndUnlockNextModule(userId: number, moduleId: string): Promise<void> {
-    // Modül içindeki tüm dersleri al
-    const progressEntries = await db.select()
-      .from(userProgress)
-      .where(
-        and(
-          eq(userProgress.userId, userId),
-          eq(userProgress.moduleId, moduleId)
-        )
-      );
-
-    // Modül içindeki derslerin sayısı (basitleştirilmiş)
-    const lessonCounts: { [key: string]: number } = {
-      'modul-1': 3,
-      'modul-2': 3,
-      'modul-3': 3,
-      'modul-4': 3,
-      'modul-5': 3,
-      'modul-6': 3
-    };
-
-    // Tüm dersler tamamlanmış mı kontrol et
-    const totalLessons = lessonCounts[moduleId] || 0;
-    const completedLessons = progressEntries.filter(p => p.completed).length;
-    
-    console.log(`Module ${moduleId}: ${completedLessons}/${totalLessons} lessons completed`);
-
-    if (totalLessons > 0 && completedLessons >= totalLessons) {
-      // Bir sonraki modülü belirle
-      const nextModuleId = this.getNextModuleId(moduleId);
-      if (nextModuleId) {
-        // Sonraki modülü kilitsiz hale getir
-        await this.unlockModule(userId, nextModuleId);
+    try {
+      // Modül içindeki tüm dersleri al
+      const progressEntries = await db.select()
+        .from(userProgress)
+        .where(
+          and(
+            eq(userProgress.userId, userId),
+            eq(userProgress.moduleId, moduleId)
+          )
+        );
+  
+      // Modül içindeki derslerin sayısı (her modül için KESIN değerler)
+      const lessonCounts: { [key: string]: number } = {
+        'modul-1': 3,
+        'modul-2': 3,
+        'modul-3': 3,
+        'modul-4': 3,
+        'modul-5': 3,
+        'modul-6': 3
+      };
+  
+      // Tüm dersler tamamlanmış mı kontrol et
+      const totalLessons = lessonCounts[moduleId] || 0;
+      const completedLessons = progressEntries.filter(p => p.completed).length;
+      
+      console.log(`Module ${moduleId}: ${completedLessons}/${totalLessons} lessons completed`);
+  
+      // Eğer bu modülde en az bir ders tamamlandıysa ve
+      // tüm dersler tamamlanmışsa, sonraki modülü aç
+      if (totalLessons > 0 && completedLessons >= totalLessons) {
+        // Bir sonraki modülü belirle
+        const nextModuleId = this.getNextModuleId(moduleId);
+        if (nextModuleId) {
+          console.log(`*** UNLOCKING NEXT MODULE: ${nextModuleId} for user ${userId} ***`);
+          
+          // Sonraki modülü kilitsiz hale getir
+          await this.unlockModule(userId, nextModuleId);
+          
+          // Kilit açıldığını doğrula
+          const isUnlocked = await this.isModuleUnlocked(userId, nextModuleId);
+          console.log(`Module ${nextModuleId} unlock status: ${isUnlocked ? 'UNLOCKED' : 'STILL LOCKED'}`);
+        }
+      } else {
+        console.log(`Not all lessons completed in module ${moduleId} (${completedLessons}/${totalLessons}), not unlocking next module.`);
       }
+    } catch (error) {
+      console.error('Error in checkAndUnlockNextModule:', error);
     }
   }
 
