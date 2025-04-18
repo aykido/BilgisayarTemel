@@ -256,56 +256,28 @@ export function useProgress() {
       // Check if all lessons in the module are now completed
       const allLessonsCompleted = module?.lessons.every(lesson => lesson.isComplete) || false;
       
-      // Tüm dersler tamamlandıysa, modül tamamlandı olarak işaretle
-      // ve bir sonraki modül kilidini aç - NOT: Asıl kilit açma veritabanında gerçekleşecek
+      // Sadece bildirim göster, tüm modüller zaten açık
       if (allLessonsCompleted) {
         console.log(`All lessons completed in module: ${moduleId}`);
         
-        // Bir sonraki modülü bul ve kilitli değilse göster
+        // Bir sonraki modülü bul ve kullanıcıyı yönlendir
         const currentModuleIndex = courseData.findIndex(m => m.id === moduleId);
         if (currentModuleIndex >= 0 && currentModuleIndex < courseData.length - 1) {
-          // Bu, UI'da modülü hemen erişilebilir göstermek için
-          // Asıl kilit açma sunucuda gerçekleşecek, refresh'te de gösterilecek
           const nextModule = courseData[currentModuleIndex + 1];
-          nextModule.isLocked = false;
-          console.log(`Unlocked next module: ${nextModule.title}`);
+
+          console.log(`Tebrikler! ${moduleId} modülünü tamamladınız!`);
           
-          // API'ye modül kilidini açma isteği gönder
-          const unlockNextModule = async () => {
-            try {
-              const response = await fetch('/api/module-unlock', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ moduleId: nextModule.id })
-              });
-              
-              if (response.ok) {
-                console.log(`Successfully unlocked module ${nextModule.id} in the session`);
-                
-                // Modül kilit durumunu yenile
-                queryClient.invalidateQueries({ queryKey: ['/api/module-unlocks'] });
-                
-                // Kullanıcıyı bir sonraki modülün ilk dersine yönlendir
-                // Quiz durumundan kurtulması için bunu biraz gecikmeli olarak yap
-                if (nextModule.lessons.length > 0) {
-                  const nextModuleFirstLesson = nextModule.lessons[0];
-                  console.log(`Navigating to next module's first lesson: ${nextModuleFirstLesson.id}`);
-                  setTimeout(() => {
-                    // Deployment ortamında tam yolu kullan (hostname dahil)
-                    const baseUrl = window.location.origin;
-                    window.location.href = `${baseUrl}/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
-                  }, 3000); // 3 saniye bekle - daha uzun süre ver
-                }
-              }
-            } catch (error) {
-              console.error("Error unlocking next module:", error);
-            }
-          };
-          
-          // API çağrısını başlat
-          unlockNextModule();
+          // Kullanıcıyı bir sonraki modülün ilk dersine yönlendir
+          if (nextModule.lessons.length > 0) {
+            const nextModuleFirstLesson = nextModule.lessons[0];
+            console.log(`Navigating to next module's first lesson: ${nextModuleFirstLesson.id}`);
+            
+            // Deployment ortamında tam yolu kullan (hostname dahil)
+            const baseUrl = window.location.origin;
+            setTimeout(() => {
+              window.location.href = `${baseUrl}/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
+            }, 3000); // 3 saniye bekle
+          }
         }
       }
       

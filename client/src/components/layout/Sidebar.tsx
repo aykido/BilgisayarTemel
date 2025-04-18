@@ -22,19 +22,14 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
     refetchInterval: 5000  // Her 5 saniyede bir yenile
   });
   
-  // Modül kilit durumlarını güncelle
+  // TÜM MODÜLLER AÇIK - kilit kullanmıyoruz
   useEffect(() => {
-    if (moduleUnlocks && Array.isArray(moduleUnlocks) && moduleUnlocks.length > 0) {
-      // API'den gelen kilit durumlarına göre lokal veriyi güncelle
-      moduleUnlocks.forEach((unlock: any) => {
-        const moduleIndex = courseData.findIndex(m => m.id === unlock.moduleId);
-        if (moduleIndex >= 0 && unlock.isUnlocked) {
-          courseData[moduleIndex].isLocked = false;
-          console.log(`Unlocked module from DB: ${courseData[moduleIndex].title}`);
-        }
-      });
-    }
-  }, [moduleUnlocks]);
+    // Tüm modüllerin kilidini aç
+    courseData.forEach(module => {
+      module.isLocked = false;
+    });
+    console.log("Tüm modüllerin kilidi açıldı - öğrenciler istediği modülden başlayabilir");
+  }, []);
   
   // Aktif modülleri otomatik genişlet
   useEffect(() => {
