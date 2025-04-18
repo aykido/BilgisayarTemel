@@ -55,6 +55,9 @@ app.use(session({
 declare module "express-session" {
   interface SessionData {
     userId?: number;
+    progress?: any[];
+    moduleUnlocks?: any[];
+    quizResults?: any[];
   }
 }
 
