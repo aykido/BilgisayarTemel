@@ -1512,18 +1512,23 @@ export function getPreviousLesson(currentModuleId: string, currentLessonId: stri
 }
 
 export function getOverallProgress(): number {
+  // Sadece açık modülleri hesaba kat
   let completedLessons = 0;
   let totalLessons = 0;
   
   courseData.forEach(module => {
-    module.lessons.forEach(lesson => {
-      totalLessons++;
-      if (lesson.isComplete) {
-        completedLessons++;
-      }
-    });
+    // Sadece açık (kilitli olmayan) modülleri hesaba kat
+    if (!module.isLocked) {
+      module.lessons.forEach(lesson => {
+        totalLessons++;
+        if (lesson.isComplete) {
+          completedLessons++;
+        }
+      });
+    }
   });
   
+  // İlk modül her zaman açık olduğundan, bu hesaplamayla yeni başlayanlar için de mantıklı bir sonuç elde edilir
   return totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 }
 
