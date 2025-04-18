@@ -45,13 +45,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
   }, [location]);
   
   const toggleModule = (moduleId: string, isLocked: boolean) => {
-    // Eğer modül kilitliyse işlemi engelle
-    if (isLocked) {
-      console.log("Bu modül henüz kilitli!");
-      return;
-    }
-    
-    // Değilse genişlet/daralt
+    // Tüm modüller açık, kilitli kontrolü yapmıyoruz
     setExpandedModules(prev => 
       prev.includes(moduleId) 
         ? prev.filter(id => id !== moduleId) 
