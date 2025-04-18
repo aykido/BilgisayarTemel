@@ -24,7 +24,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
   
   // Modül kilit durumlarını güncelle
   useEffect(() => {
-    if (moduleUnlocks && moduleUnlocks.length > 0) {
+    if (moduleUnlocks && Array.isArray(moduleUnlocks) && moduleUnlocks.length > 0) {
       // API'den gelen kilit durumlarına göre lokal veriyi güncelle
       moduleUnlocks.forEach((unlock: any) => {
         const moduleIndex = courseData.findIndex(m => m.id === unlock.moduleId);
@@ -49,7 +49,14 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
     }
   }, [location]);
   
-  const toggleModule = (moduleId: string) => {
+  const toggleModule = (moduleId: string, isLocked: boolean) => {
+    // Eğer modül kilitliyse işlemi engelle
+    if (isLocked) {
+      console.log("Bu modül henüz kilitli!");
+      return;
+    }
+    
+    // Değilse genişlet/daralt
     setExpandedModules(prev => 
       prev.includes(moduleId) 
         ? prev.filter(id => id !== moduleId) 
@@ -87,8 +94,8 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
           {courseData.map((module: Module) => (
             <div key={module.id} className="module-item mb-1">
               <div 
-                className={`flex items-center px-3 py-2 rounded-md hover:bg-neutral-100 cursor-pointer transition-colors module-header ${isModuleActive(module.id) ? "bg-neutral-100" : ""}`}
-                onClick={() => toggleModule(module.id)}
+                className={`flex items-center px-3 py-2 rounded-md ${!module.isLocked ? "hover:bg-neutral-100" : "opacity-70"} cursor-pointer transition-colors module-header ${isModuleActive(module.id) ? "bg-neutral-100" : ""}`}
+                onClick={() => toggleModule(module.id, module.isLocked)}
               >
                 <span className={`material-icons mr-2 ${module.isLocked ? "text-neutral-400" : "text-primary"}`}>
                   {module.icon}

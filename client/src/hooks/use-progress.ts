@@ -261,18 +261,40 @@ export function useProgress() {
           nextModule.isLocked = false;
           console.log(`Unlocked next module: ${nextModule.title}`);
           
-          // İşlem tamamlandıktan sonra modül kilit durumunu yenile
-          setTimeout(() => {
-            queryClient.invalidateQueries({ queryKey: ['/api/module-unlocks'] });
-            
-            // Kullanıcıyı bir sonraki modülün ilk dersine yönlendir
-            // Quiz durumundan kurtulması için bunu biraz gecikmeli olarak yap
-            if (nextModule && nextModule.lessons.length > 0) {
-              const nextModuleFirstLesson = nextModule.lessons[0];
-              console.log(`Navigating to next module's first lesson: ${nextModuleFirstLesson.id}`);
-              window.location.href = `/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
+          // API'ye modül kilidini açma isteği gönder
+          const unlockNextModule = async () => {
+            try {
+              const response = await fetch('/api/module-unlock', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ moduleId: nextModule.id })
+              });
+              
+              if (response.ok) {
+                console.log(`Successfully unlocked module ${nextModule.id} in the session`);
+                
+                // Modül kilit durumunu yenile
+                queryClient.invalidateQueries({ queryKey: ['/api/module-unlocks'] });
+                
+                // Kullanıcıyı bir sonraki modülün ilk dersine yönlendir
+                // Quiz durumundan kurtulması için bunu biraz gecikmeli olarak yap
+                if (nextModule.lessons.length > 0) {
+                  const nextModuleFirstLesson = nextModule.lessons[0];
+                  console.log(`Navigating to next module's first lesson: ${nextModuleFirstLesson.id}`);
+                  setTimeout(() => {
+                    window.location.href = `/modul/${nextModule.id}/ders/${nextModuleFirstLesson.id}`;
+                  }, 2000); // 2 saniye bekle
+                }
+              }
+            } catch (error) {
+              console.error("Error unlocking next module:", error);
             }
-          }, 2000); // 2 saniye bekle
+          };
+          
+          // API çağrısını başlat
+          unlockNextModule();
         }
       }
       
