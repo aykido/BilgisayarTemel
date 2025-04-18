@@ -72,24 +72,21 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
       </div>
       
       <div className="h-[calc(100vh-64px)] overflow-y-auto custom-scrollbar">
-        <div className="p-4">
-          <div className="relative rounded-full overflow-hidden h-4 bg-neutral-100 mb-2">
-            <div className="progress-bar absolute top-0 left-0 h-full bg-success rounded-full" style={{"--progress-width": `${overallProgress}%`} as React.CSSProperties}></div>
-          </div>
-          <p className="text-sm text-neutral-600 mb-4">Genel İlerleme: %{overallProgress}</p>
+        <div className="p-4 mb-2">
+          <p className="text-sm text-neutral-600 font-medium">Ders Modülleri</p>
         </div>
         
         <nav className="course-navigation px-2">
           {courseData.map((module: Module) => (
             <div key={module.id} className="module-item mb-1">
               <div 
-                className={`flex items-center px-3 py-2 rounded-md ${!module.isLocked ? "hover:bg-neutral-100" : "opacity-70"} cursor-pointer transition-colors module-header ${isModuleActive(module.id) ? "bg-neutral-100" : ""}`}
-                onClick={() => toggleModule(module.id, module.isLocked)}
+                className={`flex items-center px-3 py-2 rounded-md hover:bg-neutral-100 cursor-pointer transition-colors module-header ${isModuleActive(module.id) ? "bg-neutral-100" : ""}`}
+                onClick={() => toggleModule(module.id, false)}
               >
-                <span className={`material-icons mr-2 ${module.isLocked ? "text-neutral-400" : "text-primary"}`}>
+                <span className="material-icons mr-2 text-primary">
                   {module.icon}
                 </span>
-                <span className={`font-medium ${module.isLocked ? "text-neutral-400" : ""}`}>
+                <span className="font-medium">
                   {module.title}
                 </span>
                 <span 
@@ -99,35 +96,29 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
                 </span>
               </div>
               
-              {!module.isLocked && expandedModules.includes(module.id) && (
+              {expandedModules.includes(module.id) && (
                 <div className="module-content pl-10 pr-3 py-1">
                   <ul className="space-y-1">
                     {module.lessons.map((lesson) => (
                       <li 
                         key={lesson.id}
-                        className={`py-1.5 text-sm flex items-center ${isLessonActive(lesson.id) ? "bg-neutral-100 rounded-md px-2 border-l-2 border-primary" : ""}`}
+                        className={`py-1.5 text-sm flex items-center hover:text-primary cursor-pointer ${isLessonActive(lesson.id) ? "bg-neutral-100 rounded-md px-2 border-l-2 border-primary" : ""}`}
                         onClick={() => navigate(`/modul/${module.id}/ders/${lesson.id}`)}
                       >
                         <span className={`material-icons mr-2 text-sm ${
-                          lesson.isComplete 
-                            ? "text-success" 
-                            : isLessonActive(lesson.id) 
-                              ? "text-primary" 
-                              : "text-neutral-300"
+                          isLessonActive(lesson.id) 
+                            ? "text-primary" 
+                            : "text-neutral-400"
                         }`}>
-                          {lesson.isComplete 
-                            ? "check_circle" 
-                            : isLessonActive(lesson.id) 
-                              ? "play_circle" 
-                              : "radio_button_unchecked"
+                          {isLessonActive(lesson.id) 
+                            ? "play_circle" 
+                            : "article"
                           }
                         </span>
                         <span className={`${
                           isLessonActive(lesson.id) 
                             ? "text-primary font-medium" 
-                            : lesson.isComplete 
-                              ? "text-neutral-800" 
-                              : "text-neutral-400"
+                            : "text-neutral-600"
                         }`}>
                           {lesson.title}
                         </span>
