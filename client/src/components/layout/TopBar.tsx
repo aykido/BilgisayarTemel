@@ -1,4 +1,5 @@
 import { Lesson } from "@/lib/types";
+import { useLocation } from "wouter";
 
 interface TopBarProps {
   lesson: Lesson;
@@ -7,6 +8,12 @@ interface TopBarProps {
 }
 
 export function TopBar({ lesson, moduleName, onToggleSidebar }: TopBarProps) {
+  const [_, navigate] = useLocation();
+
+  const goToHomePage = () => {
+    navigate("/");
+  };
+
   return (
     <div className="bg-white shadow-sm p-4 flex items-center justify-between">
       <div className="flex items-center">
@@ -25,7 +32,11 @@ export function TopBar({ lesson, moduleName, onToggleSidebar }: TopBarProps) {
           <span className="text-sm text-neutral-600">{lesson.duration} dakika</span>
         </div>
         <div className="relative">
-          <button className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors">
+          <button 
+            onClick={goToHomePage}
+            className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors"
+            title="Ana Sayfaya Dön"
+          >
             <span className="material-icons text-sm">person</span>
           </button>
         </div>
