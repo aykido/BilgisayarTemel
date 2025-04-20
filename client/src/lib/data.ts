@@ -894,7 +894,44 @@ export const courseData: Module[] = [
               }
             }
           ],
-          exercises: [],
+          exercises: [
+            {
+              id: "word-proje-1",
+              type: "matching",
+              title: "Proje 1: Profesyonel CV Hazırlama",
+              description: "Kendiniz veya hayali bir kişi için profesyonel bir CV hazırlayın. Bu proje, Word becerilerinizi geliştirmenize yardımcı olacaktır.",
+              items: [
+                {
+                  id: "cv-1",
+                  question: "Gereken Beceriler",
+                  answer: "Yazı tipi biçimlendirme, tablo oluşturma, madde işaretleri, sayfa düzeni, belgeyi PDF olarak kaydetme"
+                },
+                {
+                  id: "cv-2",
+                  question: "İçermesi Gerekenler",
+                  answer: "Başlık, kişisel bilgiler, eğitim geçmişi, iş deneyimi, beceriler ve referanslar"
+                }
+              ]
+            },
+            {
+              id: "word-proje-2",
+              type: "matching",
+              title: "Proje 2: Seyahat Broşürü Tasarlama",
+              description: "Sevdiğiniz bir şehir veya ülke için iki sayfalık bir seyahat broşürü hazırlayın. Bu proje, sayfa düzeni ve tasarım becerilerinizi geliştirmenize yardımcı olacaktır.",
+              items: [
+                {
+                  id: "brosur-1",
+                  question: "Gereken Beceriler",
+                  answer: "Çok sütunlu düzen, şekiller ve görseller için yer tutucu ekleme, renk şeması uygulama, metni çerçeveleme"
+                },
+                {
+                  id: "brosur-2",
+                  question: "İçermesi Gerekenler",
+                  answer: "Başlık, alt başlıklar, görsel yer tutucuları, en az iki sütunlu bir bölüm, madde işaretli listeler ve çekici bir renk şeması"
+                }
+              ]
+            }
+          ],
           quiz: {
             id: "modul-4-quiz",
             title: "Microsoft Word Quiz",
@@ -1142,7 +1179,44 @@ export const courseData: Module[] = [
               }
             }
           ],
-          exercises: [],
+          exercises: [
+            {
+              id: "excel-proje-1",
+              type: "matching",
+              title: "Proje 1: Aile Bütçe Planı",
+              description: "Aylık gelir-gider takibi için bir aile bütçe tablosu oluşturun. Bu proje, Excel becerilerinizi geliştirmenize yardımcı olacaktır.",
+              items: [
+                {
+                  id: "butce-1",
+                  question: "Gereken Beceriler",
+                  answer: "Temel formüller (TOPLA, ORTALAMA), hücre biçimlendirme, koşullu biçimlendirme, basit grafik oluşturma"
+                },
+                {
+                  id: "butce-2",
+                  question: "İçermesi Gerekenler",
+                  answer: "Gelir kaynakları, gider kategorileri, aylık toplam hesaplamaları, gelir-gider farkı formülü, basit sütun veya pasta grafik"
+                }
+              ]
+            },
+            {
+              id: "excel-proje-2",
+              type: "matching",
+              title: "Proje 2: Öğrenci Not Takip Sistemi",
+              description: "Bir sınıfın öğrenci notlarını takip edebileceğiniz bir tablo oluşturun. Bu proje, Excel'deki formül ve fonksiyon becerilerinizi geliştirmenize yardımcı olacaktır.",
+              items: [
+                {
+                  id: "not-1",
+                  question: "Gereken Beceriler",
+                  answer: "Formül oluşturma, EĞER fonksiyonu kullanımı, sıralama, filtreleme, koşullu biçimlendirme"
+                },
+                {
+                  id: "not-2",
+                  question: "İçermesi Gerekenler",
+                  answer: "Öğrenci adları, sınav notları, ödev notları, ortalama hesaplama, başarı durumu (EĞER fonksiyonu ile), en yüksek/düşük not hesaplama"
+                }
+              ]
+            }
+          ],
           quiz: {
             id: "modul-5-quiz",
             title: "Microsoft Excel Quiz",
@@ -1400,7 +1474,44 @@ export const courseData: Module[] = [
               }
             }
           ],
-          exercises: [],
+          exercises: [
+            {
+              id: "powerpoint-proje-1",
+              type: "matching",
+              title: "Proje 1: Şirket Tanıtım Sunumu",
+              description: "Hayali veya gerçek bir şirket için profesyonel bir tanıtım sunumu hazırlayın. Bu proje, PowerPoint becerilerinizi geliştirmenize yardımcı olacaktır.",
+              items: [
+                {
+                  id: "sunum-1",
+                  question: "Gereken Beceriler",
+                  answer: "Slayt düzeni seçimi, tema uygulaması, metin biçimlendirme, görseller ekleme, şekil ve grafikler kullanma"
+                },
+                {
+                  id: "sunum-2",
+                  question: "İçermesi Gerekenler",
+                  answer: "Kapak slaytı, şirket hakkında bilgi, ürün/hizmet tanıtımı, ekip tanıtımı, iletişim bilgileri, en az bir grafik ve SmartArt diyagram"
+                }
+              ]
+            },
+            {
+              id: "powerpoint-proje-2",
+              type: "matching",
+              title: "Proje 2: Eğitim Sunumu",
+              description: "İlgi duyduğunuz bir konuda eğitim amaçlı bir sunum hazırlayın. Bu proje, etkili sunum tasarımı becerilerinizi geliştirmenize yardımcı olacaktır.",
+              items: [
+                {
+                  id: "egitim-1",
+                  question: "Gereken Beceriler",
+                  answer: "Slayt tasarımı, görsel-metin dengesi, animasyon ve geçiş efektleri, medya (ses/video) ekleme, notlar ekleme"
+                },
+                {
+                  id: "egitim-2",
+                  question: "İçermesi Gerekenler",
+                  answer: "Giriş slaytı, konu başlıkları, içerik slaytları, özet, görsel destekli açıklamalar, etkileşimli öğeler (bağlantılar veya tetikleyiciler)"
+                }
+              ]
+            }
+          ],
           quiz: {
             id: "modul-6-quiz",
             title: "Microsoft PowerPoint Quiz",
