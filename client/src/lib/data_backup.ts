@@ -684,47 +684,6 @@ export const courseData: Module[] = [
     icon: "description",
     lessons: [
       {
-        id: "word-projeler",
-        title: "Word Projeler",
-        description: "Microsoft Word becerilerinizi geliştirmek için uygulama projeleri",
-        moduleId: "modul-4",
-        order: 0,
-        duration: 30,
-        isComplete: false,
-        content: {
-          sections: [
-            {
-              type: "heading",
-              content: "Word Uygulama Projeleri"
-            },
-            {
-              type: "paragraph",
-              content: "Aşağıdaki projeleri kendi bilgisayarınızda uygulayarak Word becerilerinizi geliştirebilirsiniz. Bu projeler gerçek hayatta karşılaşabileceğiniz senaryolara dayalı olarak hazırlanmıştır."
-            },
-            {
-              type: "heading",
-              title: "Proje 1: Profesyonel CV Hazırlama",
-              content: "Proje 1: Profesyonel CV Hazırlama"
-            },
-            {
-              type: "paragraph",
-              content: "Kendiniz veya hayali bir kişi için profesyonel bir CV hazırlayın. CV'nizde şu bölümler bulunmalıdır: Başlık, kişisel bilgiler, eğitim geçmişi, iş deneyimi, beceriler ve referanslar. Farklı yazı tipleri, stilleri, tablolar ve madde işaretleri kullanarak belgeyi profesyonel görünümlü hale getirin. Tamamladığınızda belgeyi PDF olarak da kaydedin."
-            },
-            {
-              type: "heading",
-              title: "Proje 2: Seyahat Broşürü Tasarlama",
-              content: "Proje 2: Seyahat Broşürü Tasarlama"
-            },
-            {
-              type: "paragraph",
-              content: "Sevdiğiniz bir şehir veya ülke için iki sayfalık bir seyahat broşürü hazırlayın. Broşürünüzde başlık, alt başlıklar, görüntüler için yer tutucular, en az iki sütunlu bir bölüm, madde işaretli listeler ve çekici bir renk şeması bulunmalıdır. Çok sütunlu düzen, görseller için yer tutucular ekleme, renk şemaları uygulama ve metni çerçeveleme gibi becerileri kullanın. Sayfa kenar boşluklarını ve stil özelliklerini özelleştirerek profesyonel görünümlü bir broşür oluşturun."
-            }
-          ],
-          exercises: [],
-          quiz: null
-        }
-      },
-      {
         id: "word-arayuzu",
         title: "Microsoft Word Arayüzü",
         description: "Word'ün arayüzünü ve temel bileşenlerini tanıma",
@@ -934,8 +893,32 @@ export const courseData: Module[] = [
                 description: "Bir metnin biçimini başka bir metne hızlıca uygulamak için Biçim Boyacısı aracını kullanabilirsiniz. Biçimlendirmesini kopyalamak istediğiniz metni seçin, Biçim Boyacısına tıklayın ve ardından biçimlendirilecek metni seçin."
               }
             }
+          sections: [
+            {
+              type: "heading",
+              content: "Word Uygulama Projeleri"
+            },
+            {
+              type: "heading",
+              title: "Proje 1: Profesyonel CV Hazırlama",
+              content: "Proje 1: Profesyonel CV Hazırlama"
+            },
+            {
+              type: "paragraph",
+              content: "Kendiniz veya hayali bir kişi için profesyonel bir CV hazırlayın. Bu proje, Word becerilerinizi geliştirmenize yardımcı olacaktır. CV'nizde şu bölümler bulunmalıdır: Başlık, kişisel bilgiler, eğitim geçmişi, iş deneyimi, beceriler ve referanslar. Farklı yazı tipleri, stilleri, tablolar ve madde işaretleri kullanarak belgeyi profesyonel görünümlü hale getirin. Tamamladığınızda belgeyi PDF olarak da kaydedin."
+            },
+            {
+              type: "heading",
+              title: "Proje 2: Seyahat Broşürü Tasarlama",
+              content: "Proje 2: Seyahat Broşürü Tasarlama"
+            },
+            {
+              type: "paragraph",
+              content: "Sevdiğiniz bir şehir veya ülke için iki sayfalık bir seyahat broşürü hazırlayın. Broşürünüzde başlık, alt başlıklar, görüntüler için yer tutucular, en az iki sütunlu bir bölüm, madde işaretli listeler ve çekici bir renk şeması bulunmalıdır. Çok sütunlu düzen, görseller için yer tutucular ekleme, renk şemaları uygulama ve metni çerçeveleme gibi becerileri kullanın. Sayfa kenar boşluklarını ve stil özelliklerini özelleştirerek profesyonel görünümlü bir broşür oluşturun."
+            }
           ],
           exercises: [],
+          ],
           quiz: {
             id: "modul-4-quiz",
             title: "Microsoft Word Quiz",
@@ -979,47 +962,6 @@ export const courseData: Module[] = [
     isLocked: false,
     icon: "table_chart",
     lessons: [
-      {
-        id: "excel-projeler",
-        title: "Excel Projeler",
-        description: "Microsoft Excel becerilerinizi geliştirmek için uygulama projeleri",
-        moduleId: "modul-5",
-        order: 0,
-        duration: 30,
-        isComplete: false,
-        content: {
-          sections: [
-            {
-              type: "heading",
-              content: "Excel Uygulama Projeleri"
-            },
-            {
-              type: "paragraph",
-              content: "Aşağıdaki projeleri kendi bilgisayarınızda uygulayarak Excel becerilerinizi geliştirebilirsiniz. Bu projeler gerçek hayatta karşılaşabileceğiniz senaryolara dayalı olarak hazırlanmıştır."
-            },
-            {
-              type: "heading",
-              title: "Proje 1: Aile Bütçe Planı",
-              content: "Proje 1: Aile Bütçe Planı"
-            },
-            {
-              type: "paragraph",
-              content: "Aylık gelir-gider takibi için bir aile bütçe tablosu oluşturun. Bu proje, Excel'deki temel formül ve biçimlendirme becerilerinizi geliştirmenize yardımcı olacaktır. Tablonuzda şu bölümler bulunmalıdır: Gelir kaynakları, gider kategorileri (örn. kira, market, faturalar, eğlence vb.), aylık toplam hesaplamaları, gelir-gider farkı formülü ve ay sonu bakiyesi. Ayrıca gider dağılımını gösteren bir pasta grafik ekleyin. Koşullu biçimlendirme kullanarak limiti aşan harcama kategorilerini kırmızı renkle gösterin."
-            },
-            {
-              type: "heading",
-              title: "Proje 2: Öğrenci Not Takip Sistemi",
-              content: "Proje 2: Öğrenci Not Takip Sistemi"
-            },
-            {
-              type: "paragraph",
-              content: "Bir öğretmen için öğrenci not takip sistemi oluşturun. Projede, öğrenci adları ve soyadları, aldıkları çeşitli sınav notları (en az 3 sınav), ödev notları ve bu notların belirli ağırlıklara göre hesaplanmış ortalamaları yer almalıdır. ORTALAMA, MIN, MAKS ve EĞER fonksiyonlarını kullanarak her öğrencinin durumunu (geçti/kaldı) belirleyin. Koşullu biçimlendirme kullanarak geçer not olan 60'ın altındaki notları kırmızı, 85 ve üzeri notları yeşil renkte gösterin. Sonuçları gösteren bir sütun grafik ekleyin ve veri filtresi kullanarak başarı durumuna göre filtreleme yapılabilmesini sağlayın."
-            }
-          ],
-          exercises: [],
-          quiz: null
-        }
-      },
       {
         id: "excel-arayuzu",
         title: "Microsoft Excel Arayüzü",
@@ -1305,47 +1247,6 @@ export const courseData: Module[] = [
     isLocked: false,
     icon: "slideshow",
     lessons: [
-      {
-        id: "powerpoint-projeler",
-        title: "PowerPoint Projeler",
-        description: "Microsoft PowerPoint becerilerinizi geliştirmek için uygulama projeleri",
-        moduleId: "modul-6",
-        order: 0,
-        duration: 30,
-        isComplete: false,
-        content: {
-          sections: [
-            {
-              type: "heading",
-              content: "PowerPoint Uygulama Projeleri"
-            },
-            {
-              type: "paragraph",
-              content: "Aşağıdaki projeleri kendi bilgisayarınızda uygulayarak PowerPoint becerilerinizi geliştirebilirsiniz. Bu projeler gerçek hayatta karşılaşabileceğiniz senaryolara dayalı olarak hazırlanmıştır."
-            },
-            {
-              type: "heading",
-              title: "Proje 1: Etkili Şirket Sunumu",
-              content: "Proje 1: Etkili Şirket Sunumu"
-            },
-            {
-              type: "paragraph",
-              content: "Hayali veya gerçek bir şirket için 10-15 slaytlık profesyonel bir sunum hazırlayın. Sunumda şirketin tanıtımı, ürün/hizmetleri, ekip bilgileri, başarıları ve gelecek hedefleri yer almalıdır. Tutarlı bir tasarım şablonu kullanın, çekici başlıklar ekleyin, uygun grafik ve görseller yerleştirin, madde işaretli ve numaralı listeler kullanın. Slaytlar arasında geçiş efektleri ve animasyonlar ekleyin, ancak bunları sade ve profesyonel düzeyde tutun. Son slayta iletişim bilgileri ve çağrı-yönlendirme (call to action) mesajı ekleyin. Sunumun başına şirketin logosunu ve bir içindekiler sayfası yerleştirin."
-            },
-            {
-              type: "heading",
-              title: "Proje 2: Eğitim Sunumu",
-              content: "Proje 2: Eğitim Sunumu"
-            },
-            {
-              type: "paragraph",
-              content: "İlgi duyduğunuz bir konu hakkında 8-12 slaytlık eğitim amaçlı bir sunum hazırlayın. Sunumunuzda konu başlıkları, temel bilgiler, örnekler, görsel destekler (grafikler, diyagramlar, resimler) ve kaynaklar bulunmalıdır. Eğitici içerik sunarken akılda kalıcı olmak için SmartArt grafikler kullanın. Sunumun belirli kısımlarında etkileşimli bir quiz veya soru-cevap slaytları ekleyin. Başlangıçta bir kapak slaytı ve hedef kitle bilgisi, sonunda ise özet ve öğrenme sonuçları slaytı oluşturun. Karmaşık kavramlar için görselleştirme tekniklerini kullanın ve bazı kısımlara ses kaydı ya da video ekleyin."
-            }
-          ],
-          exercises: [],
-          quiz: null
-        }
-      },
       {
         id: "powerpoint-arayuzu",
         title: "PowerPoint Arayüzü",
