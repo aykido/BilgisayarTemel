@@ -893,7 +893,6 @@ export const courseData: Module[] = [
                 description: "Bir metnin biçimini başka bir metne hızlıca uygulamak için Biçim Boyacısı aracını kullanabilirsiniz. Biçimlendirmesini kopyalamak istediğiniz metni seçin, Biçim Boyacısına tıklayın ve ardından biçimlendirilecek metni seçin."
               }
             }
-          ],
           sections: [
             {
               type: "heading",
@@ -919,6 +918,7 @@ export const courseData: Module[] = [
             }
           ],
           exercises: [],
+          ],
           quiz: {
             id: "modul-4-quiz",
             title: "Microsoft Word Quiz",
