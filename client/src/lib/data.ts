@@ -1497,6 +1497,28 @@ export const courseData: Module[] = [
                   answer: "Giriş slaytı, konu başlıkları, içerik slaytları, özet, görsel destekli açıklamalar, etkileşimli öğeler (bağlantılar veya tetikleyiciler)"
                 }
               ]
+            },
+            {
+              type: "heading",
+              content: "PowerPoint Uygulama Projeleri"
+            },
+            {
+              type: "heading",
+              title: "Proje 1: Şirket Tanıtım Sunumu",
+              content: "Proje 1: Şirket Tanıtım Sunumu"
+            },
+            {
+              type: "paragraph",
+              content: "Hayali bir şirket için 10-15 slaytlık profesyonel bir tanıtım sunumu hazırlayın. Sunumunuzda şirket misyonu, vizyonu, ürün/hizmetler, ekip ve iletişim bilgileri bölümleri olmalıdır. Şirket logosu için bir görsel, ürün/hizmetler için görseller, ve en az bir grafik veya tablo ekleyin. Tutarlı bir tema, profesyonel yazı tipleri ve renk şeması kullanarak profesyonel bir görünüm elde edin. Slaytlar arasında uygun geçiş efektleri ekleyin ve en az bir animasyon kullanın."
+            },
+            {
+              type: "heading",
+              title: "Proje 2: Eğitim Sunumu",
+              content: "Proje 2: Eğitim Sunumu"
+            },
+            {
+              type: "paragraph",
+              content: "İlgilendiğiniz bir konu hakkında 8-10 slaytlık eğitim amaçlı bir sunum hazırlayın. Sunumunuzda giriş, ana konu başlıkları, görsellerle desteklenmiş açıklamalar ve özet bölümleri olmalıdır. SmartArt grafiklerini kullanarak en az bir kavram şeması veya süreç akışı ekleyin. En az bir video veya ses dosyası yerleştirin (veya bunlar için yer tutucu ekleyin). Notlar bölümüne konuşma notları ekleyin ve slaytı gösteren kişiye sunum ipuçları verin. Sunum sonuna bir quiz slaytı ekleyerek interaktif bir bölüm oluşturun."
             }
           ],
           quiz: {
