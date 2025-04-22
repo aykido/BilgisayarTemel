@@ -61,6 +61,7 @@ export interface ExerciseItem {
   question: string;
   answer: string;
   options?: string[];
+  correctAnswer?: number;
 }
 
 export interface Quiz {

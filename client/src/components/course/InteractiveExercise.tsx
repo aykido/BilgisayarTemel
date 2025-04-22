@@ -39,21 +39,22 @@ export function InteractiveExercise({ exercise, onComplete }: InteractiveExercis
     return (
       <div className="space-y-3">
         {exercise.items.map(item => (
-          <div key={item.id} className="bg-white p-3 rounded-lg border border-neutral-200 flex justify-between items-center">
+          <div key={item.id} className="exercise-item">
             <span className="font-medium">{item.question}</span>
-            <select 
-              className="bg-neutral-100 px-3 py-1 rounded text-sm border-none focus:ring-1 focus:ring-primary"
-              value={userAnswers[item.id] || ""}
-              onChange={e => handleAnswerChange(item.id, e.target.value)}
-              disabled={isChecked}
-            >
-              <option value="">Seçiniz</option>
-              {exercise.items.map(answerItem => (
-                <option key={answerItem.id} value={answerItem.answer}>
-                  {answerItem.answer}
-                </option>
-              ))}
-            </select>
+            <div className="exercise-dropdown">
+              <select 
+                value={userAnswers[item.id] || ""}
+                onChange={e => handleAnswerChange(item.id, e.target.value)}
+                disabled={isChecked}
+              >
+                <option value="">Seçiniz</option>
+                {exercise.items.map(answerItem => (
+                  <option key={answerItem.id} value={answerItem.answer}>
+                    {answerItem.answer}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         ))}
       </div>
@@ -64,9 +65,9 @@ export function InteractiveExercise({ exercise, onComplete }: InteractiveExercis
     return (
       <div className="space-y-4">
         {exercise.items.map(item => (
-          <div key={item.id} className="bg-white p-4 rounded-lg border border-neutral-200">
+          <div key={item.id} className="exercise-item flex-col items-start">
             <p className="font-medium mb-2">{item.question}</p>
-            <div className="space-y-2">
+            <div className="space-y-2 w-full">
               {item.options?.map((option, index) => (
                 <div key={index} className="flex items-center">
                   <input 
@@ -93,7 +94,7 @@ export function InteractiveExercise({ exercise, onComplete }: InteractiveExercis
     return (
       <div className="space-y-3">
         {exercise.items.map(item => (
-          <div key={item.id} className="bg-white p-3 rounded-lg border border-neutral-200">
+          <div key={item.id} className="exercise-item flex-col items-start">
             <p className="font-medium mb-2">{item.question}</p>
             <input 
               type="text" 

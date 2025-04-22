@@ -62,3 +62,29 @@ a:hover .logo-text {
 .logo-text {
   transition: opacity 0.2s ease-in-out;
 }
+
+/* Dropdown ve egzersizler için özel stiller */
+.exercise-dropdown select,
+.project-dropdown select {
+  @apply bg-neutral-100 px-3 py-1 rounded text-sm border border-neutral-200 focus:ring-1 focus:ring-primary w-auto;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.exercise-item, 
+.project-item {
+  @apply bg-white p-3 rounded-lg border border-neutral-200 flex flex-wrap justify-between items-center mb-3;
+}
+
+@media (max-width: 640px) {
+  .exercise-item,
+  .project-item {
+    @apply flex-col items-start;
+  }
+  
+  .exercise-dropdown select,
+  .project-dropdown select {
+    @apply mt-2 w-full;
+    max-width: 100%;
+  }
+}
