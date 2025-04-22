@@ -1,0 +1,327 @@
+Excel'in en güçlü özelliklerinden biri, formüller kullanarak hesaplamalar yapabilme yeteneğidir. Formüller, Excel'i basit bir tablo programından güçlü bir analiz aracına dönüştürür. Bu bölümde, Excel'de temel formülleri nasıl oluşturacağınızı ve kullanacağınızı öğreneceksiniz.
+
+Formül Temelleri
+Formül Nedir?
+Excel'de formül, bir hücrede hesaplama yapmak için kullanılan bir ifadedir. Tüm formüller eşittir (=) işareti ile başlar ve Excel'e bu hücrede bir hesaplama yapılacağını bildirir.
+
+Formüller şunları içerebilir:
+
+Sayılar (örn. 123, 45.67)
+Hücre referansları (örn. A1, B5)
+İşleçler (örn. +, -, *, /)
+Fonksiyonlar (örn. TOPLA, ORTALAMA)
+Sabitler (örn. DOĞRU, YANLIŞ)
+Formül Oluşturma
+Bir formül oluşturmak için:
+
+Formülü girmek istediğiniz hücreyi seçin
+Eşittir (=) işaretini yazın
+Formülü oluşturun (sayılar, hücre referansları, işleçler, fonksiyonlar kullanarak)
+Enter tuşuna basın
+Basit Formül Örneği
+A1: 10
+B1: 20
+C1: =A1+B1
+C1 hücresinde formülün sonucu 30 olarak görüntülenir.
+
+Formül Düzenleme
+Bir formülü düzenlemek için:
+
+Hücreye çift tıklayın veya F2 tuşuna basın
+Formül çubuğunda düzenleme yapın
+Enter tuşuna basın
+Temel Aritmetik İşleçler
+Excel'de kullanabileceğiniz temel aritmetik işleçler şunlardır:
+
+İşleç	Açıklama	Örnek
++ (Artı)	Toplama	=A1+B1
+- (Eksi)	Çıkarma	=A1-B1
+* (Yıldız)	Çarpma	=A1*B1
+/ (Eğik Çizgi)	Bölme	=A1/B1
+^ (Şapka)	Üs alma	=A1^2
+% (Yüzde)	Yüzde	=A1*5%
+İşlem Önceliği
+Excel, matematiksel işlem önceliği kurallarını takip eder:
+
+Parantez içindeki işlemler
+Üs alma (^)
+Çarpma (*) ve bölme (/)
+Toplama (+) ve çıkarma (-)
+Aynı önceliğe sahip işleçler soldan sağa doğru değerlendirilir.
+
+İşlem Önceliği Örneği
+=5+2*3
+Sonuç: 11 (önce 2*3=6, sonra 5+6=11)
+=(5+2)*3
+Sonuç: 21 (önce 5+2=7, sonra 7*3=21)
+Hücre Referansları
+Göreceli Referanslar
+Göreceli referanslar (örn. A1, B5), formül kopyalandığında otomatik olarak değişir. Bu, formülün yeni konumuna göre ayarlanır.
+
+Göreceli Referans Örneği
+B1: =A1*2
+B2: =A2*2 (B1'den kopyalandığında)
+Mutlak Referanslar
+Mutlak referanslar (örn. $A$1, $B$5), formül kopyalandığında değişmez. Dolar işareti ($), referansın sabit kalmasını sağlar.
+
+Mutlak Referans Örneği
+B1: =$A$1*2
+B2: =$A$1*2 (B1'den kopyalandığında)
+Karma Referanslar
+Karma referanslar, mutlak ve göreceli referansların bir kombinasyonudur:
+
+$A1: Sütun sabittir, satır değişkendir
+A$1: Sütun değişkendir, satır sabittir
+Karma Referans Örneği
+B1: =$A1*2
+B2: =$A2*2 (B1'den kopyalandığında)
+B1: =A$1*2
+C1: =B$1*2 (B1'den sağa kopyalandığında)
+İpucu: Formül yazarken F4 tuşuna basarak referans türleri arasında geçiş yapabilirsiniz (A1 → $A$1 → A$1 → $A1 → A1).
+
+Temel Excel Fonksiyonları
+Excel fonksiyonları, karmaşık hesaplamaları basitleştiren önceden tanımlanmış formüllerdir. İşte en sık kullanılan temel Excel fonksiyonları:
+
+TOPLA (SUM)
+Belirtilen hücre aralığındaki sayıları toplar.
+
+Sözdizimi: =TOPLA(sayı1, [sayı2], ...)
+
+Örnek: =TOPLA(A1:A10) veya =TOPLA(A1, B1, C1)
+
+TOPLA Fonksiyonu Örneği
+A1: 10
+A2: 20
+A3: 30
+A4: =TOPLA(A1:A3)
+A4 hücresinde sonuç 60 olarak görüntülenir.
+
+ORTALAMA (AVERAGE)
+Belirtilen hücre aralığındaki sayıların ortalamasını hesaplar.
+
+Sözdizimi: =ORTALAMA(sayı1, [sayı2], ...)
+
+Örnek: =ORTALAMA(A1:A10) veya =ORTALAMA(A1, B1, C1)
+
+ORTALAMA Fonksiyonu Örneği
+A1: 10
+A2: 20
+A3: 30
+A4: =ORTALAMA(A1:A3)
+A4 hücresinde sonuç 20 olarak görüntülenir.
+
+MAK (MAX) ve MİN (MIN)
+MAK, belirtilen hücre aralığındaki en büyük değeri bulur.
+MİN, belirtilen hücre aralığındaki en küçük değeri bulur.
+
+Sözdizimi: =MAK(sayı1, [sayı2], ...) veya =MİN(sayı1, [sayı2], ...)
+
+Örnek: =MAK(A1:A10) veya =MİN(A1:A10)
+
+MAK ve MİN Fonksiyonları Örneği
+A1: 10
+A2: 20
+A3: 30
+A4: =MAK(A1:A3)
+A5: =MİN(A1:A3)
+A4 hücresinde sonuç 30, A5 hücresinde sonuç 10 olarak görüntülenir.
+
+EĞER (IF)
+Belirtilen koşul doğruysa bir değer, yanlışsa başka bir değer döndürür.
+
+Sözdizimi: =EĞER(mantıksal_sınama, doğruysa_değer, yanlışsa_değer)
+
+Örnek: =EĞER(A1>10, "Büyük", "Küçük")
+
+EĞER Fonksiyonu Örneği
+A1: 15
+A2: 5
+B1: =EĞER(A1>10, "Büyük", "Küçük")
+B2: =EĞER(A2>10, "Büyük", "Küçük")
+B1 hücresinde "Büyük", B2 hücresinde "Küçük" görüntülenir.
+
+SAY (COUNT) ve SAYASAY (COUNTA)
+SAY, belirtilen hücre aralığındaki sayı içeren hücrelerin sayısını hesaplar.
+SAYASAY, belirtilen hücre aralığındaki boş olmayan hücrelerin sayısını hesaplar.
+
+Sözdizimi: =SAY(değer1, [değer2], ...) veya =SAYASAY(değer1, [değer2], ...)
+
+Örnek: =SAY(A1:A10) veya =SAYASAY(A1:A10)
+
+SAY ve SAYASAY Fonksiyonları Örneği
+A1: 10
+A2: "Metin"
+A3: 30
+A4:
+A5: =SAY(A1:A4)
+A6: =SAYASAY(A1:A4)
+A5 hücresinde sonuç 2 (sadece sayılar), A6 hücresinde sonuç 3 (boş olmayan hücreler) olarak görüntülenir.
+
+YUVARLA (ROUND)
+Bir sayıyı belirtilen basamak sayısına yuvarlar.
+
+Sözdizimi: =YUVARLA(sayı, basamak_sayısı)
+
+Örnek: =YUVARLA(A1, 2)
+
+YUVARLA Fonksiyonu Örneği
+A1: 123.456
+A2: =YUVARLA(A1, 2)
+A3: =YUVARLA(A1, 0)
+A4: =YUVARLA(A1, -1)
+A2 hücresinde 123.46, A3 hücresinde 123, A4 hücresinde 120 görüntülenir.
+
+Fonksiyon Ekleme Yöntemleri
+Manuel Giriş
+Fonksiyonu doğrudan hücreye yazabilirsiniz:
+
+Hücreye tıklayın
+Eşittir (=) işaretini yazın
+Fonksiyon adını yazın (örn. TOPLA)
+Parantez açın ve argümanları girin
+Parantezi kapatın ve Enter tuşuna basın
+Fonksiyon Sihirbazı
+Fonksiyon Sihirbazı, fonksiyonları daha kolay eklemenize yardımcı olur:
+
+Hücreye tıklayın
+"Formüller" sekmesindeki "İşlev Ekle" düğmesine tıklayın veya Shift+F3 tuşlarına basın
+Bir kategori ve fonksiyon seçin
+Argümanları girin
+"Tamam" düğmesine tıklayın
+Excel Fonksiyon Sihirbazı
+Excel'de Fonksiyon Sihirbazı
+
+Otomatik Tamamlama
+Excel, bir fonksiyonun ilk birkaç harfini yazdığınızda otomatik tamamlama önerileri sunar:
+
+Hücreye tıklayın
+Eşittir (=) işaretini yazın
+Fonksiyonun ilk birkaç harfini yazın
+Açılan listeden fonksiyonu seçin
+Argümanları girin
+Enter tuşuna basın
+Formül Hataları ve Denetleme
+Yaygın Formül Hataları
+Excel'de karşılaşabileceğiniz yaygın formül hataları:
+
+Hata	Açıklama	Olası Nedenleri
+#DEĞER!	Değer hatası	Yanlış veri türü kullanımı (örn. metin yerine sayı bekleniyor)
+#BÖLÜ/0!	Sıfıra bölme hatası	Formül sıfıra bölme işlemi içeriyor
+#ADI?	Ad hatası	Excel tanımlanmamış bir ad veya fonksiyon kullanıldı
+#BAŞV!	Başvuru hatası	Geçersiz hücre referansı (örn. silinmiş hücre)
+#SAYI!	Sayı hatası	Sayısal bir sorun var (örn. çok büyük veya çok küçük sayı)
+#YOK	Kullanılamayan değer	Arama fonksiyonu değer bulamadı
+Formül Denetleme Araçları
+Excel, formüllerinizi denetlemenize yardımcı olan çeşitli araçlar sunar:
+
+Formül İzleme: "Formüller" sekmesindeki "Formül İzleme" grubunda bulunan araçlar, formüllerinizin nasıl çalıştığını görselleştirmenize yardımcı olur:
+Bağımlıları İzle: Seçili hücrenin değerini kullanan hücreleri gösterir
+Öncelleri İzle: Seçili hücrenin değerini etkileyen hücreleri gösterir
+Hata Denetimi: Formüllerdeki hataları otomatik olarak denetler
+Değerlendirme Penceresi: "Formüller" sekmesindeki "Formül İzleme" grubunda bulunan "Formülü Değerlendir" düğmesi, karmaşık formülleri adım adım değerlendirmenize olanak tanır
+İzleme Okları: Formül bağımlılıklarını ve öncüllerini görsel olarak gösterir
+Excel Formül İzleme
+Excel'de formül izleme araçları
+
+Formül Kopyalama ve Taşıma
+Formül Kopyalama
+Formülleri kopyalamanın birkaç yolu vardır:
+
+Kopyala ve Yapıştır: Formülü içeren hücreyi seçin, Ctrl+C tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın
+Doldurma Kolu: Formülü içeren hücreyi seçin, sağ alt köşedeki doldurma kolunu tutun ve sürükleyin
+Ctrl+D (Aşağı Doldur): Formülü aşağıya doğru kopyalar
+Ctrl+R (Sağa Doldur): Formülü sağa doğru kopyalar
+Değer Olarak Kopyalama
+Bazen formülün kendisini değil, sadece sonucunu kopyalamak isteyebilirsiniz:
+
+Formülü içeren hücreyi seçin
+Ctrl+C tuşlarına basın
+Hedef hücreyi seçin
+Sağ tıklayın ve "Özel Yapıştır" seçeneğini seçin
+"Değerler" seçeneğini seçin
+"Tamam" düğmesine tıklayın
+Pratik Formül Örnekleri
+Satış Raporu
+Bir satış raporu oluşturmak için formülleri nasıl kullanabileceğinizi gösteren bir örnek:
+
+A1: "Ürün"
+B1: "Miktar"
+C1: "Birim Fiyat"
+D1: "Toplam"
+A2: "Ürün A"
+B2: 5
+C2: 10
+D2: =B2*C2
+A3: "Ürün B"
+B3: 3
+C3: 15
+D3: =B3*C3
+A4: "Ürün C"
+B4: 2
+C4: 20
+D4: =B4*C4
+A5: "Toplam"
+B5: =TOPLA(B2:B4)
+C5:
+D5: =TOPLA(D2:D4)
+Not Hesaplama
+Öğrenci notlarını hesaplamak için formülleri nasıl kullanabileceğinizi gösteren bir örnek:
+
+A1: "Öğrenci"
+B1: "Vize"
+C1: "Final"
+D1: "Ortalama"
+E1: "Durum"
+A2: "Ali"
+B2: 70
+C2: 80
+D2: =B2*0.4+C2*0.6
+E2: =EĞER(D2>=60,"Geçti","Kaldı")
+A3: "Ayşe"
+B3: 50
+C3: 60
+D3: =B3*0.4+C3*0.6
+E3: =EĞER(D3>=60,"Geçti","Kaldı")
+A4: "Sınıf Ortalaması"
+B4: =ORTALAMA(B2:B3)
+C4: =ORTALAMA(C2:C3)
+D4: =ORTALAMA(D2:D3)
+E4:
+Bütçe Hesaplama
+Aylık bütçe hesaplamak için formülleri nasıl kullanabileceğinizi gösteren bir örnek:
+
+A1: "Kategori"
+B1: "Bütçe"
+C1: "Harcama"
+D1: "Kalan"
+E1: "Kullanım %"
+A2: "Kira"
+B2: 2000
+C2: 2000
+D2: =B2-C2
+E2: =C2/B2
+A3: "Gıda"
+B3: 1500
+C3: 1200
+D3: =B3-C3
+E3: =C3/B3
+A4: "Ulaşım"
+B4: 500
+C4: 450
+D4: =B4-C4
+E4: =C4/B4
+A5: "Toplam"
+B5: =TOPLA(B2:B4)
+C5: =TOPLA(C2:C4)
+D5: =TOPLA(D2:D4)
+E5: =C5/B5
+Pratik Alıştırmalar
+Basit bir toplama formülü oluşturun ve göreceli referansları kullanarak kopyalayın.
+Mutlak referans kullanarak bir vergi hesaplama tablosu oluşturun (sabit vergi oranı kullanın).
+TOPLA, ORTALAMA, MAK ve MİN fonksiyonlarını kullanarak bir veri setini analiz edin.
+EĞER fonksiyonunu kullanarak bir not değerlendirme tablosu oluşturun (örn. 90-100 arası "A", 80-89 arası "B" vb.).
+Bir satış raporu oluşturun ve formülleri kullanarak toplam satış, ortalama satış ve komisyon hesaplayın.
+Özet
+Bu bölümde, Excel'de temel formülleri nasıl oluşturacağınızı ve kullanacağınızı öğrendik. Formül temelleri, temel aritmetik işleçler, hücre referansları, temel Excel fonksiyonları, formül denetleme araçları ve pratik formül örneklerini ele aldık.
+
+Formüller, Excel'in en güçlü özelliklerinden biridir ve verileri analiz etmek, hesaplamalar yapmak ve karar vermek için kullanılabilir. Temel formül becerilerini geliştirdikçe, Excel'in daha karmaşık özelliklerini kullanmak için sağlam bir temel oluşturmuş olacaksınız.

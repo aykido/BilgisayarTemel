@@ -1094,7 +1094,33 @@ export const courseData: Module[] = [
             },
             {
               type: "paragraph",
-              content: "Excel'in en güçlü yönlerinden biri, formüller ve fonksiyonlar kullanarak veriler üzerinde hesaplamalar yapabilmesidir. Bu bölümde, temel formül yazımını ve en çok kullanılan fonksiyonları öğreneceksiniz."
+              content: "Excel'in en güçlü özelliklerinden biri, formüller kullanarak hesaplamalar yapabilme yeteneğidir. Formüller, Excel'i basit bir tablo programından güçlü bir analiz aracına dönüştürür. Bu bölümde, Excel'de temel formülleri nasıl oluşturacağınızı ve kullanacağınızı öğreneceksiniz."
+            },
+            {
+              type: "heading",
+              title: "Formül Temelleri",
+              content: "Formül Temelleri"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de formül, bir hücrede hesaplama yapmak için kullanılan bir ifadedir. Tüm formüller eşittir (=) işareti ile başlar ve Excel'e bu hücrede bir hesaplama yapılacağını bildirir. Formüller şunları içerebilir: Sayılar (örn. 123, 45.67), Hücre referansları (örn. A1, B5), İşleçler (örn. +, -, *, /), Fonksiyonlar (örn. TOPLA, ORTALAMA), Sabitler (örn. DOĞRU, YANLIŞ)."
+            },
+            {
+              type: "info",
+              content: {
+                icon: "tips_and_updates",
+                title: "Formül Oluşturma Adımları",
+                description: "1. Formülü girmek istediğiniz hücreyi seçin\n2. Eşittir (=) işaretini yazın\n3. Formülü oluşturun (sayılar, hücre referansları, işleçler, fonksiyonlar kullanarak)\n4. Enter tuşuna basın"
+              }
+            },
+            {
+              type: "heading",
+              title: "Basit Formül Örneği",
+              content: "Basit Formül Örneği"
+            },
+            {
+              type: "paragraph",
+              content: "A1: 10\nB1: 20\nC1: =A1+B1\n\nC1 hücresinde formülün sonucu 30 olarak görüntülenir."
             },
             {
               type: "heading",
@@ -1163,6 +1189,41 @@ export const courseData: Module[] = [
                 icon: "info",
                 title: "Formül Kopyalama",
                 description: "Bir formülü diğer hücrelere kopyalamak için, formülü içeren hücrenin sağ alt köşesindeki doldurma kolunu (fill handle) tutup sürükleyebilirsiniz. Göreceli referanslar otomatik olarak güncellenecektir."
+              }
+            },
+            {
+              type: "heading",
+              title: "İşlem Önceliği",
+              content: "İşlem Önceliği"
+            },
+            {
+              type: "paragraph",
+              content: "Excel, matematiksel işlem önceliği kurallarını takip eder:\n\n1. Parantez içindeki işlemler\n2. Üs alma (^)\n3. Çarpma (*) ve bölme (/)\n4. Toplama (+) ve çıkarma (-)\n\nAynı önceliğe sahip işleçler soldan sağa doğru değerlendirilir."
+            },
+            {
+              type: "info",
+              content: {
+                icon: "calculate",
+                title: "İşlem Önceliği Örneği",
+                description: "=5+2*3\nSonuç: 11 (önce 2*3=6, sonra 5+6=11)\n\n=(5+2)*3\nSonuç: 21 (önce 5+2=7, sonra 7*3=21)"
+              }
+            },
+            {
+              type: "heading",
+              title: "Formül Hataları ve Denetleme",
+              content: "Formül Hataları ve Denetleme"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Hata", "Açıklama", "Olası Nedenleri"],
+                rows: [
+                  ["#DEĞER!", "Değer hatası", "Yanlış veri türü kullanımı (örn. metin yerine sayı bekleniyor)"],
+                  ["#BÖLÜ/0!", "Sıfıra bölme hatası", "Formül sıfıra bölme işlemi içeriyor"],
+                  ["#ADI?", "Ad hatası", "Tanımlanmamış bir ad veya fonksiyon kullanıldı"],
+                  ["#BAŞV!", "Başvuru hatası", "Geçersiz hücre referansı (örn. silinmiş hücre)"],
+                  ["#SAYI!", "Sayı hatası", "Sayısal bir sorun var (örn. çok büyük veya küçük sayı)"]
+                ]
               }
             }
           ],
