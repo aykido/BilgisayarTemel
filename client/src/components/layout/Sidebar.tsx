@@ -141,6 +141,7 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
             <h3 className="text-sm font-semibold text-neutral-800 mb-2">Yardıma mı ihtiyacın var?</h3>
             <p className="text-xs text-neutral-600 mb-3">Soruların için eğitmenle iletişime geçebilirsin.</p>
             <a href="mailto:aykutbozalan@gmail.com" className="block w-full px-3 py-1.5 bg-primary text-white rounded text-sm font-medium hover:bg-primary/90 transition-colors text-center">İletişime Geç</a>
+            <p className="text-center text-xs mt-2 text-neutral-500 font-medium">Aykut BOZALAN</p>
           </div>
         </div>
       </div>
