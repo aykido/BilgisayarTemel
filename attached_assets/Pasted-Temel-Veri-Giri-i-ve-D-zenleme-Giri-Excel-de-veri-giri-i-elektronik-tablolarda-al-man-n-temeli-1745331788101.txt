@@ -1,0 +1,188 @@
+Temel Veri Girişi ve Düzenleme
+Giriş
+Excel'de veri girişi, elektronik tablolarda çalışmanın temelidir. Bu bölümde, Excel'de nasıl veri girebileceğinizi, düzenleyebileceğinizi ve yönetebileceğinizi öğreneceksiniz. Doğru veri girişi teknikleri, verimli çalışmanın ve hatasız sonuçlar elde etmenin anahtarıdır.
+
+Veri Türleri
+Excel'de çalışırken karşılaşacağınız temel veri türleri şunlardır:
+
+Metin
+Metin verileri, harfler, rakamlar ve özel karakterlerden oluşabilir. Excel'de metin verileri varsayılan olarak hücrenin sol tarafına hizalanır.
+
+Örnek: "Satış Raporu", "İstanbul", "A123"
+
+Sayılar
+Sayısal veriler, matematiksel hesaplamalarda kullanılabilen rakamlardan oluşur. Excel'de sayısal veriler varsayılan olarak hücrenin sağ tarafına hizalanır.
+
+Örnek: 123, 45.67, -89
+
+Tarih ve Saat
+Excel, tarih ve saat verilerini özel bir sayısal format olarak saklar. Bu, tarihler üzerinde hesaplama yapabilmenizi sağlar.
+
+Örnek: 01.01.2025, 15:30, 01.01.2025 15:30
+
+Mantıksal (Boolean)
+Mantıksal veriler, DOĞRU (TRUE) veya YANLIŞ (FALSE) değerlerini alabilir. Genellikle formüllerde ve koşullu ifadelerde kullanılır.
+
+Formüller
+Formüller, hesaplama yapan ifadelerdir. Her zaman eşittir (=) işareti ile başlar.
+
+Örnek: =A1+B1, =TOPLA(A1:A10), =EĞER(A1>10;"Büyük";"Küçük")
+
+Excel Veri Türleri
+Excel'de farklı veri türleri
+
+Veri Girişi Yöntemleri
+Doğrudan Giriş
+En temel veri girişi yöntemi, bir hücreye tıklayıp veriyi yazmaktır. Veri girişini tamamlamak için:
+
+Enter tuşuna basın (bir alt hücreye geçer)
+Tab tuşuna basın (bir sağdaki hücreye geçer)
+Ok tuşlarına basın (belirtilen yöndeki hücreye geçer)
+Başka bir hücreye tıklayın
+Formül Çubuğu Kullanımı
+Formül çubuğunu kullanarak da veri girebilir veya düzenleyebilirsiniz. Özellikle uzun metinler veya karmaşık formüller için kullanışlıdır.
+
+Otomatik Tamamlama
+Excel, daha önce girdiğiniz verilere benzer girişler yaparken otomatik tamamlama önerileri sunar. Bu özellik, özellikle tekrarlayan veri girişlerinde zaman kazandırır.
+
+Seri Oluşturma
+Excel, otomatik olarak veri serileri oluşturmanıza olanak tanır:
+
+Başlangıç değerini bir hücreye girin (örneğin, "Ocak" veya 1)
+Hücrenin sağ alt köşesindeki doldurma kolunu tutun
+İstediğiniz yöne sürükleyin
+Excel, girdiğiniz değere bağlı olarak seriyi otomatik olarak devam ettirir:
+
+Sayılar: 1, 2, 3, ...
+Aylar: Ocak, Şubat, Mart, ...
+Günler: Pazartesi, Salı, Çarşamba, ...
+Tarihler: 01.01.2025, 02.01.2025, 03.01.2025, ...
+Excel Seri Oluşturma
+Excel'de seri oluşturma
+
+Doldurma Seçenekleri
+Doldurma kolunu sağ tıklayarak sürüklediğinizde, farklı doldurma seçenekleri sunan bir menü açılır:
+
+Seriyi Doldur: Otomatik seri oluşturur
+Yalnızca Biçimlendirmeyi Doldur: Sadece biçimlendirmeyi kopyalar
+Biçimlendirme Olmadan Doldur: Sadece değerleri kopyalar
+Yıl, Ay, Gün gibi özel seri seçenekleri
+Veri Düzenleme
+Hücre İçeriğini Düzenleme
+Bir hücrenin içeriğini düzenlemek için birkaç yöntem vardır:
+
+Hücreye çift tıklayın
+Hücreyi seçip F2 tuşuna basın
+Hücreyi seçip formül çubuğunda düzenleme yapın
+Hücre İçeriğini Silme
+Hücre içeriğini silmek için:
+
+Hücreyi seçip Delete tuşuna basın
+Hücreyi sağ tıklayıp "Temizle" seçeneğini kullanın
+"Giriş" sekmesindeki "Temizle" düğmesini kullanın
+Not: Delete tuşu sadece hücre içeriğini siler, hücrenin kendisini değil. Hücreleri tamamen silmek için "Giriş" sekmesindeki "Sil" düğmesini kullanın.
+
+Kopyalama ve Taşıma
+Hücre içeriğini kopyalamak veya taşımak için:
+
+Kopyalama: Hücreyi seçin, Ctrl+C tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın
+Taşıma: Hücreyi seçin, Ctrl+X tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın
+Sürükle ve Bırak: Hücreyi seçin, kenarından tutup sürükleyin (kopyalamak için Ctrl tuşunu basılı tutun)
+Özel Yapıştırma
+Özel Yapıştırma (Paste Special) seçeneği, kopyalanan verilerin belirli özelliklerini yapıştırmanıza olanak tanır:
+
+Değerler: Formüller yerine sadece sonuçları yapıştırır
+Biçimlendirme: Sadece biçimlendirmeyi yapıştırır
+Formüller: Sadece formülleri yapıştırır
+Matematiksel işlemler: Toplama, çıkarma, çarpma, bölme gibi işlemler uygular
+Özel Yapıştırma'ya erişmek için:
+
+Giriş > Yapıştır > Özel Yapıştırma
+Sağ tıklayın > Özel Yapıştırma
+Ctrl+Alt+V kısayolu
+Excel Özel Yapıştırma
+Excel'de özel yapıştırma seçenekleri
+
+Büyük Veri Setleriyle Çalışma
+Çoklu Hücre Seçimi
+Birden fazla hücreyi seçmek için:
+
+Bitişik hücreler: İlk hücreyi tıklayın, Shift tuşunu basılı tutarak son hücreyi tıklayın
+Bitişik olmayan hücreler: İlk hücreyi tıklayın, Ctrl tuşunu basılı tutarak diğer hücreleri tıklayın
+Tüm çalışma sayfası: Sol üst köşedeki boş kutuyu tıklayın veya Ctrl+A tuşlarına basın
+Tam satır/sütun: Satır/sütun başlığını tıklayın
+Bul ve Değiştir
+Büyük veri setlerinde belirli değerleri bulmak ve değiştirmek için Bul ve Değiştir özelliğini kullanabilirsiniz:
+
+Ctrl+F: Bul
+Ctrl+H: Değiştir
+Bul ve Değiştir penceresinde, arama seçeneklerini özelleştirebilirsiniz:
+
+Büyük/küçük harf eşleştirme
+Tam hücre eşleştirme
+Formüllerde arama
+Joker karakterler kullanma
+Veri Doğrulama
+Veri Doğrulama, kullanıcıların hücrelere girebileceği veri türlerini sınırlamanıza olanak tanır:
+
+Hücreleri seçin
+Veri > Veri Doğrulama'yı tıklayın
+İzin verilen veri türünü ve kısıtlamaları ayarlayın
+Veri doğrulama seçenekleri:
+
+Tam sayı, ondalık sayı, liste, tarih, saat gibi veri türleri
+Minimum ve maksimum değerler
+Açılır liste
+Özel formül
+Hata mesajları ve giriş mesajları
+Excel Veri Doğrulama
+Excel'de veri doğrulama ayarları
+
+Veri İçe Aktarma
+Metin Dosyalarından Veri İçe Aktarma
+Excel, CSV (Virgülle Ayrılmış Değerler) ve TXT (Sekmeyle Ayrılmış Değerler) gibi metin dosyalarından veri içe aktarmanıza olanak tanır:
+
+Veri > Metinden/CSV'den Al'ı tıklayın
+Dosyayı seçin
+Veri içe aktarma sihirbazını takip edin
+Web'den Veri Alma
+Web sayfalarından veri almak için:
+
+Veri > Web'den Al'ı tıklayın
+URL'yi girin
+İçe aktarmak istediğiniz tabloları seçin
+Diğer Kaynaklardan Veri Alma
+Excel, aşağıdaki kaynaklardan da veri almanıza olanak tanır:
+
+Diğer Excel dosyaları
+Access veritabanları
+SQL Server, MySQL gibi veritabanları
+XML dosyaları
+Power Query ile çeşitli veri kaynakları
+Veri Temizleme
+Yinelenen Değerleri Kaldırma
+Veri setinizdeki yinelenen değerleri kaldırmak için:
+
+Veri aralığını seçin
+Veri > Yinelenen Değerleri Kaldır'ı tıklayın
+Kontrol edilecek sütunları seçin
+Metni Sütunlara Dönüştürme
+Tek bir hücredeki metni birden fazla sütuna ayırmak için:
+
+Veri aralığını seçin
+Veri > Metni Sütunlara Dönüştür'ü tıklayın
+Ayırıcıyı seçin (virgül, sekme, boşluk vb.)
+Her sütun için veri formatını belirleyin
+Boşlukları ve Özel Karakterleri Temizleme
+Excel, metinlerdeki fazla boşlukları ve özel karakterleri temizlemenize yardımcı olan işlevler sunar:
+
+KIRP(): Baştaki ve sondaki boşlukları kaldırır
+SOLKIRP(): Baştaki boşlukları kaldırır
+SAĞKIRP(): Sondaki boşlukları kaldırır
+YERİNEKOY(): Belirli karakterleri başka karakterlerle değiştirir
+Pratik Alıştırmalar
+Farklı veri türlerini (metin, sayı, tarih) içeren bir tablo oluşturun.
+Doldurma kolunu kullanarak 1'den 100'e kadar sayılar, aylar ve haftanın günleri serileri oluşturun.
+Bir veri setinde Bul ve Değiştir özelliğini kullanarak toplu değişiklik yapın.
+Veri Doğrulama kullanarak bir hücreye sadece belirli değerlerin (örneğin, 1-10 arası sayılar) girilebilmesini sağlayın.
+Bir CSV dosyasını Excel'e içe aktarın ve verileri düzenleyin.

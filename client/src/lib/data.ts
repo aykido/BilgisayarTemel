@@ -1079,11 +1079,167 @@ export const courseData: Module[] = [
         }
       },
       {
+        id: "veri-girisi-duzenleme",
+        title: "Temel Veri Girişi ve Düzenleme",
+        description: "Excel'de veri girişi, düzenleme ve yönetme teknikleri",
+        moduleId: "modul-5",
+        order: 2,
+        duration: 25,
+        isComplete: false,
+        content: {
+          sections: [
+            {
+              type: "heading",
+              content: "Temel Veri Girişi ve Düzenleme"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de veri girişi, elektronik tablolarda çalışmanın temelidir. Bu bölümde, Excel'de nasıl veri girebileceğinizi, düzenleyebileceğinizi ve yönetebileceğinizi öğreneceksiniz. Doğru veri girişi teknikleri, verimli çalışmanın ve hatasız sonuçlar elde etmenin anahtarıdır."
+            },
+            {
+              type: "heading",
+              title: "Veri Türleri",
+              content: "Veri Türleri"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de çalışırken karşılaşacağınız temel veri türleri şunlardır:"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "text_format",
+                  title: "Metin",
+                  description: "Metin verileri, harfler, rakamlar ve özel karakterlerden oluşabilir. Excel'de metin verileri varsayılan olarak hücrenin sol tarafına hizalanır. Örnek: 'Satış Raporu', 'İstanbul', 'A123'"
+                },
+                {
+                  icon: "calculate",
+                  title: "Sayılar",
+                  description: "Sayısal veriler, matematiksel hesaplamalarda kullanılabilen rakamlardan oluşur. Excel'de sayısal veriler varsayılan olarak hücrenin sağ tarafına hizalanır. Örnek: 123, 45.67, -89"
+                },
+                {
+                  icon: "date_range",
+                  title: "Tarih ve Saat",
+                  description: "Excel, tarih ve saat verilerini özel bir sayısal format olarak saklar. Bu, tarihler üzerinde hesaplama yapabilmenizi sağlar. Örnek: 01.01.2025, 15:30, 01.01.2025 15:30"
+                },
+                {
+                  icon: "toggle_on",
+                  title: "Mantıksal (Boolean)",
+                  description: "Mantıksal veriler, DOĞRU (TRUE) veya YANLIŞ (FALSE) değerlerini alabilir. Genellikle formüllerde ve koşullu ifadelerde kullanılır."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Veri Girişi Yöntemleri",
+              content: "Veri Girişi Yöntemleri"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de veri girişi için birkaç yöntem bulunmaktadır:"
+            },
+            {
+              type: "list",
+              content: [
+                "Doğrudan Giriş: Bir hücreye tıklayıp veriyi yazın. Enter, Tab veya ok tuşlarına basarak veya başka bir hücreye tıklayarak girişi tamamlayın.",
+                "Formül Çubuğu Kullanımı: Formül çubuğuna veri girerek, özellikle uzun metinler veya karmaşık formüller için kullanışlıdır.",
+                "Otomatik Tamamlama: Excel, daha önce girdiğiniz verilere benzer girişler yaparken otomatik tamamlama önerileri sunar.",
+                "Seri Oluşturma: Başlangıç değerini bir hücreye girip, doldurma kolunu kullanarak otomatik seriler oluşturabilirsiniz."
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "tips_and_updates",
+                title: "Seri Oluşturma İpucu",
+                description: "Excel, girdiğiniz değere bağlı olarak seriyi otomatik olarak devam ettirir:\n- Sayılar: 1, 2, 3, ...\n- Aylar: Ocak, Şubat, Mart, ...\n- Günler: Pazartesi, Salı, Çarşamba, ...\n- Tarihler: 01.01.2025, 02.01.2025, 03.01.2025, ..."
+              }
+            },
+            {
+              type: "heading",
+              title: "Veri Düzenleme",
+              content: "Veri Düzenleme"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["İşlem", "Nasıl Yapılır"],
+                rows: [
+                  ["Hücre İçeriğini Düzenleme", "Hücreye çift tıklayın, F2 tuşuna basın veya formül çubuğunda düzenleme yapın"],
+                  ["Hücre İçeriğini Silme", "Hücreyi seçip Delete tuşuna basın veya sağ tıklayıp 'Temizle' seçeneğini kullanın"],
+                  ["Kopyalama", "Hücreyi seçin, Ctrl+C tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın"],
+                  ["Taşıma", "Hücreyi seçin, Ctrl+X tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Özel Yapıştırma",
+              content: "Özel Yapıştırma"
+            },
+            {
+              type: "paragraph",
+              content: "Özel Yapıştırma (Paste Special) seçeneği, kopyalanan verilerin belirli özelliklerini yapıştırmanıza olanak tanır: Değerler, Biçimlendirme, Formüller veya matematiksel işlemler uygulayabilirsiniz."
+            },
+            {
+              type: "info",
+              content: {
+                icon: "lightbulb",
+                title: "Özel Yapıştırmaya Erişim",
+                description: "- Giriş > Yapıştır > Özel Yapıştırma\n- Sağ tıklayın > Özel Yapıştırma\n- Ctrl+Alt+V kısayolu"
+              }
+            },
+            {
+              type: "heading",
+              title: "Büyük Veri Setleriyle Çalışma",
+              content: "Büyük Veri Setleriyle Çalışma"
+            },
+            {
+              type: "list",
+              content: [
+                "Çoklu Hücre Seçimi: Bitişik hücreler için Shift+tıklama, bitişik olmayan hücreler için Ctrl+tıklama kullanın.",
+                "Bul ve Değiştir: Ctrl+F (Bul) veya Ctrl+H (Değiştir) kısayollarını kullanarak büyük veri setlerinde arama yapın.",
+                "Veri Doğrulama: Hücrelere girilecek veri türlerini sınırlamak için Veri > Veri Doğrulama menüsünü kullanın.",
+                "Veri İçe Aktarma: CSV, TXT dosyaları, web sayfaları ve veritabanlarından veri aktarabilirsiniz.",
+                "Veri Temizleme: Yinelenen değerleri kaldırma, metni sütunlara dönüştürme ve boşlukları temizleme."
+              ]
+            }
+          ],
+          exercises: [
+            {
+              id: "veri-girisi-alistirma",
+              type: "matching",
+              title: "Veri Girişi ve Düzenleme Alıştırması",
+              description: "Aşağıdaki işlemleri doğru yöntemlerle eşleştirin:",
+              items: [
+                {
+                  id: "veri-1",
+                  question: "Tarih Serisi Oluşturma",
+                  answer: "Başlangıç tarihi girin ve doldurma kolunu kullanarak sürükleyin"
+                },
+                {
+                  id: "veri-2",
+                  question: "Sayısal Değerleri Kopyalama",
+                  answer: "Hücreleri seçip Ctrl+C, hedef hücreyi seçip Ctrl+V veya Özel Yapıştırma"
+                },
+                {
+                  id: "veri-3",
+                  question: "Veri Setinde Belirli Değerleri Bulma",
+                  answer: "Ctrl+F tuşlarını kullanarak Bul ve Değiştir penceresini açın"
+                }
+              ]
+            }
+          ],
+          quiz: null
+        }
+      },
+      {
         id: "temel-formuller",
         title: "Temel Formüller ve Fonksiyonlar",
         description: "Excel'de formül oluşturma ve temel fonksiyonları kullanma",
         moduleId: "modul-5",
-        order: 2,
+        order: 3,
         duration: 30,
         isComplete: false,
         content: {
