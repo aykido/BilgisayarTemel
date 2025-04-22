@@ -1,0 +1,256 @@
+Excel Arayüzü ve Temel Kavramlar
+Giriş
+Microsoft Excel, dünya çapında en yaygın kullanılan elektronik tablo programıdır. Veri analizi, hesaplama, raporlama ve görselleştirme gibi birçok alanda kullanılan güçlü bir araçtır. Bu bölümde, Excel programının arayüzünü ve temel kavramlarını öğreneceğiz.
+Excel Arayüzü
+Excel'i ilk açtığınızda karşınıza çıkan arayüz, başlangıçta karmaşık görünebilir. Ancak temel bileşenleri anladığınızda, Excel'in oldukça kullanıcı dostu bir program olduğunu göreceksiniz.
+ 
+Excel arayüzünün temel bileşenleri
+Başlık Çubuğu
+Ekranın en üst kısmında yer alan başlık çubuğu, açık olan dosyanın adını gösterir. Ayrıca Excel penceresini simge durumuna küçültme, ekranı kaplama ve kapatma düğmeleri de burada bulunur.
+Şerit (Ribbon)
+Excel 2007 ve sonraki sürümlerde kullanılan şerit arayüzü, komutları mantıksal gruplara ayıran sekmelere sahiptir. Temel sekmeler şunlardır:
+•	Dosya: Dosya açma, kaydetme, yazdırma gibi temel işlemler
+•	Giriş: En sık kullanılan biçimlendirme, düzenleme ve hücre işlemleri
+•	Ekle: Grafikler, tablolar, resimler gibi öğeleri ekleme
+•	Sayfa Düzeni: Sayfa yapısı, yazdırma ayarları, tema seçenekleri
+•	Formüller: Formül ekleme, işlev kütüphanesi
+•	Veri: Veri içe aktarma, filtreleme, sıralama, doğrulama
+•	Gözden Geçir: Yazım denetimi, yorum ekleme, değişiklikleri izleme
+•	Görünüm: Çalışma kitabı görünümlerini değiştirme, pencereleri düzenleme
+Her sekme, ilgili komutları içeren gruplardan oluşur. Örneğin, "Giriş" sekmesinde "Yazı Tipi", "Hizalama", "Sayı" gibi gruplar bulunur.
+ 
+Excel şerit menüsü ve sekmeleri
+Formül Çubuğu
+Şeridin hemen altında yer alan formül çubuğu, aktif hücrenin içeriğini gösterir ve düzenlemenize olanak tanır. Bir hücreye formül girdiğinizde, formülün kendisi formül çubuğunda görünürken, hücrede formülün sonucu görüntülenir.
+Sütun Başlıkları
+Çalışma sayfasının üst kısmında yer alan harfler (A, B, C, ...) sütun başlıklarıdır. Excel'de toplam 16.384 sütun bulunur (A'dan XFD'ye kadar).
+Satır Başlıkları
+Çalışma sayfasının sol tarafında yer alan sayılar (1, 2, 3, ...) satır başlıklarıdır. Excel'de toplam 1.048.576 satır bulunur.
+Hücreler
+Bir sütun ve bir satırın kesiştiği nokta bir hücreyi oluşturur. Her hücre, sütun harfi ve satır numarası ile tanımlanır (örneğin, A1, B5, C10). Hücreler, Excel'in temel yapı taşlarıdır ve metin, sayı, tarih, formül gibi farklı türde veriler içerebilir.
+Çalışma Sayfası Sekmeleri
+Excel dosyasının alt kısmında, çalışma sayfalarını gösteren sekmeler bulunur. Varsayılan olarak, yeni bir Excel dosyası bir çalışma sayfası ile açılır, ancak ihtiyaca göre yeni sayfalar eklenebilir.
+Durum Çubuğu
+Ekranın en altında yer alan durum çubuğu, seçili hücrelerin ortalaması, toplamı gibi hızlı istatistikler sunar ve yakınlaştırma kontrollerini içerir.
+Temel Excel Kavramları
+Çalışma Kitabı (Workbook)
+Excel dosyasının kendisine çalışma kitabı denir. Bir çalışma kitabı, bir veya daha fazla çalışma sayfasından oluşur ve .xlsx uzantısı ile kaydedilir.
+Çalışma Sayfası (Worksheet)
+Çalışma kitabı içindeki her bir sayfa, bir çalışma sayfasıdır. Sayfalar arasında veri kopyalanabilir, formüllerle bağlantı kurulabilir.
+Hücre Referansları
+Excel'de hücrelere referans vermenin farklı yolları vardır:
+•	Göreceli Referans: A1, B5 gibi referanslar, formül kopyalandığında otomatik olarak değişir.
+•	Mutlak Referans: $A$1, $B$5 gibi referanslar, formül kopyalandığında değişmez.
+•	Karma Referans: $A1 (sütun sabit, satır değişken) veya A$1 (sütun değişken, satır sabit) şeklinde olabilir.
+Hücre Referansı Örneği
+A1: 10
+B1: =A1*2
+C1: =$A$1*2
+B1 hücresindeki formül kopyalandığında, referans otomatik olarak değişir. C1 hücresindeki formül kopyalandığında ise, A1 referansı sabit kalır.
+Hücre Aralığı
+Bitişik hücrelerin bir koleksiyonuna hücre aralığı denir. A1:C5 şeklinde ifade edilir ve A1 ile C5 arasındaki tüm hücreleri kapsar.
+İsimlendirilmiş Aralıklar
+Hücre aralıklarına anlamlı isimler vererek formüllerde kullanabilirsiniz. Örneğin, B2:B10 aralığına "Satışlar" adını verip formüllerde TOPLA(Satışlar) şeklinde kullanabilirsiniz.
+Excel'de Gezinme
+Klavye Kısayolları
+Excel'de hızlı gezinmek için kullanabileceğiniz bazı temel klavye kısayolları:
+Kısayol	İşlev
+Ok tuşları	Hücreler arasında gezinme
+Page Up/Page Down	Sayfada yukarı/aşağı hareket etme
+Ctrl + Ok tuşları	Veri bloğunun sonuna/başına atlama
+Ctrl + Home	A1 hücresine gitme
+Ctrl + End	Kullanılan son hücreye gitme
+Ctrl + Page Up/Page Down	Çalışma sayfaları arasında geçiş yapma
+F2	Aktif hücreyi düzenleme moduna alma
+Enter	Hücre düzenlemeyi tamamlama ve bir alt hücreye geçme
+Tab	Hücre düzenlemeyi tamamlama ve bir sağdaki hücreye geçme
+Fare Kullanımı
+•	Çift tıklama: Hücreyi düzenleme moduna alma
+•	Sürükle ve bırak: Hücre içeriğini taşıma
+•	Ctrl + Sürükle ve bırak: Hücre içeriğini kopyalama
+•	Hücre kenarını sürükleme: Hücreyi genişletme/daraltma
+Excel Dosya İşlemleri
+Yeni Dosya Oluşturma
+Excel'i açtığınızda, boş bir çalışma kitabı ile başlarsınız. Ayrıca Dosya > Yeni seçeneğini kullanarak da yeni bir dosya oluşturabilirsiniz.
+Dosya Kaydetme
+Çalışmanızı kaydetmek için:
+•	Dosya > Kaydet: Daha önce kaydedilmiş dosyayı günceller
+•	Dosya > Farklı Kaydet: Dosyayı farklı bir ad veya konumla kaydeder
+•	Ctrl + S: Hızlı kaydetme kısayolu
+Dosya Açma
+Mevcut bir Excel dosyasını açmak için:
+•	Dosya > Aç: Dosya gezgini ile dosya seçme
+•	Ctrl + O: Hızlı dosya açma kısayolu
+Dosya Formatları
+Excel, farklı dosya formatlarını destekler:
+•	.xlsx: Varsayılan Excel dosya formatı
+•	.xlsm: Makro içeren Excel dosyası
+•	.xls: Excel 97-2003 uyumlu dosya formatı
+•	.csv: Virgülle ayrılmış değerler dosyası
+•	.txt: Sekmeyle ayrılmış metin dosyası
+Excel Yardım Sistemi
+Excel'de herhangi bir özellik hakkında yardım almak için:
+•	F1 tuşu: Bağlam duyarlı yardımı açar
+•	Şerit üzerindeki "Yardım" sekmesi: Tüm yardım seçeneklerine erişim sağlar
+•	"Bana söyle" arama kutusu: Excel 2016 ve sonraki sürümlerde, şeridin üst kısmında yer alan bu kutuya ne yapmak istediğinizi yazabilirsiniz
+Pratik Alıştırmalar
+1.	Excel'i açın ve arayüzün farklı bileşenlerini tanımlayın.
+2.	Yeni bir çalışma sayfası ekleyin ve adını değiştirin.
+3.	Klavye kısayollarını kullanarak çalışma sayfasında gezinin.
+4.	Bir hücreye veri girin ve formül çubuğunu kullanarak düzenleyin.
+5.	Dosyayı farklı formatlarda kaydedin ve farkları gözlemleyin.
+Özet
+Bu bölümde, Excel arayüzünün temel bileşenlerini ve kavramlarını öğrendik. Excel'in şerit arayüzü, formül çubuğu, hücreler, satırlar, sütunlar ve çalışma sayfaları gibi temel yapı taşlarını tanıdık. Ayrıca, Excel'de gezinme, dosya işlemleri ve yardım sistemini kullanma konularında bilgi edindik.
+Excel'in temel arayüzünü anlamak, ilerleyen bölümlerde öğreneceğimiz daha karmaşık özellikleri kullanabilmek için sağlam bir temel oluşturacaktır.
+
+Temel Veri Girişi ve Düzenleme
+Giriş
+Excel'de veri girişi, elektronik tablolarda çalışmanın temelidir. Bu bölümde, Excel'de nasıl veri girebileceğinizi, düzenleyebileceğinizi ve yönetebileceğinizi öğreneceksiniz. Doğru veri girişi teknikleri, verimli çalışmanın ve hatasız sonuçlar elde etmenin anahtarıdır.
+Veri Türleri
+Excel'de çalışırken karşılaşacağınız temel veri türleri şunlardır:
+Metin
+Metin verileri, harfler, rakamlar ve özel karakterlerden oluşabilir. Excel'de metin verileri varsayılan olarak hücrenin sol tarafına hizalanır.
+Örnek: "Satış Raporu", "İstanbul", "A123"
+Sayılar
+Sayısal veriler, matematiksel hesaplamalarda kullanılabilen rakamlardan oluşur. Excel'de sayısal veriler varsayılan olarak hücrenin sağ tarafına hizalanır.
+Örnek: 123, 45.67, -89
+Tarih ve Saat
+Excel, tarih ve saat verilerini özel bir sayısal format olarak saklar. Bu, tarihler üzerinde hesaplama yapabilmenizi sağlar.
+Örnek: 01.01.2025, 15:30, 01.01.2025 15:30
+Mantıksal (Boolean)
+Mantıksal veriler, DOĞRU (TRUE) veya YANLIŞ (FALSE) değerlerini alabilir. Genellikle formüllerde ve koşullu ifadelerde kullanılır.
+Formüller
+Formüller, hesaplama yapan ifadelerdir. Her zaman eşittir (=) işareti ile başlar.
+Örnek: =A1+B1, =TOPLA(A1:A10), =EĞER(A1>10;"Büyük";"Küçük")
+ 
+Excel'de farklı veri türleri
+Veri Girişi Yöntemleri
+Doğrudan Giriş
+En temel veri girişi yöntemi, bir hücreye tıklayıp veriyi yazmaktır. Veri girişini tamamlamak için:
+•	Enter tuşuna basın (bir alt hücreye geçer)
+•	Tab tuşuna basın (bir sağdaki hücreye geçer)
+•	Ok tuşlarına basın (belirtilen yöndeki hücreye geçer)
+•	Başka bir hücreye tıklayın
+Formül Çubuğu Kullanımı
+Formül çubuğunu kullanarak da veri girebilir veya düzenleyebilirsiniz. Özellikle uzun metinler veya karmaşık formüller için kullanışlıdır.
+Otomatik Tamamlama
+Excel, daha önce girdiğiniz verilere benzer girişler yaparken otomatik tamamlama önerileri sunar. Bu özellik, özellikle tekrarlayan veri girişlerinde zaman kazandırır.
+Seri Oluşturma
+Excel, otomatik olarak veri serileri oluşturmanıza olanak tanır:
+1.	Başlangıç değerini bir hücreye girin (örneğin, "Ocak" veya 1)
+2.	Hücrenin sağ alt köşesindeki doldurma kolunu tutun
+3.	İstediğiniz yöne sürükleyin
+Excel, girdiğiniz değere bağlı olarak seriyi otomatik olarak devam ettirir:
+•	Sayılar: 1, 2, 3, ...
+•	Aylar: Ocak, Şubat, Mart, ...
+•	Günler: Pazartesi, Salı, Çarşamba, ...
+•	Tarihler: 01.01.2025, 02.01.2025, 03.01.2025, ...
+ 
+Excel'de seri oluşturma
+Doldurma Seçenekleri
+Doldurma kolunu sağ tıklayarak sürüklediğinizde, farklı doldurma seçenekleri sunan bir menü açılır:
+•	Seriyi Doldur: Otomatik seri oluşturur
+•	Yalnızca Biçimlendirmeyi Doldur: Sadece biçimlendirmeyi kopyalar
+•	Biçimlendirme Olmadan Doldur: Sadece değerleri kopyalar
+•	Yıl, Ay, Gün gibi özel seri seçenekleri
+Veri Düzenleme
+Hücre İçeriğini Düzenleme
+Bir hücrenin içeriğini düzenlemek için birkaç yöntem vardır:
+•	Hücreye çift tıklayın
+•	Hücreyi seçip F2 tuşuna basın
+•	Hücreyi seçip formül çubuğunda düzenleme yapın
+Hücre İçeriğini Silme
+Hücre içeriğini silmek için:
+•	Hücreyi seçip Delete tuşuna basın
+•	Hücreyi sağ tıklayıp "Temizle" seçeneğini kullanın
+•	"Giriş" sekmesindeki "Temizle" düğmesini kullanın
+Not: Delete tuşu sadece hücre içeriğini siler, hücrenin kendisini değil. Hücreleri tamamen silmek için "Giriş" sekmesindeki "Sil" düğmesini kullanın.
+Kopyalama ve Taşıma
+Hücre içeriğini kopyalamak veya taşımak için:
+•	Kopyalama: Hücreyi seçin, Ctrl+C tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın
+•	Taşıma: Hücreyi seçin, Ctrl+X tuşlarına basın, hedef hücreyi seçin, Ctrl+V tuşlarına basın
+•	Sürükle ve Bırak: Hücreyi seçin, kenarından tutup sürükleyin (kopyalamak için Ctrl tuşunu basılı tutun)
+Özel Yapıştırma
+Özel Yapıştırma (Paste Special) seçeneği, kopyalanan verilerin belirli özelliklerini yapıştırmanıza olanak tanır:
+•	Değerler: Formüller yerine sadece sonuçları yapıştırır
+•	Biçimlendirme: Sadece biçimlendirmeyi yapıştırır
+•	Formüller: Sadece formülleri yapıştırır
+•	Matematiksel işlemler: Toplama, çıkarma, çarpma, bölme gibi işlemler uygular
+Özel Yapıştırma'ya erişmek için:
+•	Giriş > Yapıştır > Özel Yapıştırma
+•	Sağ tıklayın > Özel Yapıştırma
+•	Ctrl+Alt+V kısayolu
+ 
+Excel'de özel yapıştırma seçenekleri
+Büyük Veri Setleriyle Çalışma
+Çoklu Hücre Seçimi
+Birden fazla hücreyi seçmek için:
+•	Bitişik hücreler: İlk hücreyi tıklayın, Shift tuşunu basılı tutarak son hücreyi tıklayın
+•	Bitişik olmayan hücreler: İlk hücreyi tıklayın, Ctrl tuşunu basılı tutarak diğer hücreleri tıklayın
+•	Tüm çalışma sayfası: Sol üst köşedeki boş kutuyu tıklayın veya Ctrl+A tuşlarına basın
+•	Tam satır/sütun: Satır/sütun başlığını tıklayın
+Bul ve Değiştir
+Büyük veri setlerinde belirli değerleri bulmak ve değiştirmek için Bul ve Değiştir özelliğini kullanabilirsiniz:
+•	Ctrl+F: Bul
+•	Ctrl+H: Değiştir
+Bul ve Değiştir penceresinde, arama seçeneklerini özelleştirebilirsiniz:
+•	Büyük/küçük harf eşleştirme
+•	Tam hücre eşleştirme
+•	Formüllerde arama
+•	Joker karakterler kullanma
+Veri Doğrulama
+Veri Doğrulama, kullanıcıların hücrelere girebileceği veri türlerini sınırlamanıza olanak tanır:
+1.	Hücreleri seçin
+2.	Veri > Veri Doğrulama'yı tıklayın
+3.	İzin verilen veri türünü ve kısıtlamaları ayarlayın
+Veri doğrulama seçenekleri:
+•	Tam sayı, ondalık sayı, liste, tarih, saat gibi veri türleri
+•	Minimum ve maksimum değerler
+•	Açılır liste
+•	Özel formül
+•	Hata mesajları ve giriş mesajları
+ 
+Excel'de veri doğrulama ayarları
+Veri İçe Aktarma
+Metin Dosyalarından Veri İçe Aktarma
+Excel, CSV (Virgülle Ayrılmış Değerler) ve TXT (Sekmeyle Ayrılmış Değerler) gibi metin dosyalarından veri içe aktarmanıza olanak tanır:
+1.	Veri > Metinden/CSV'den Al'ı tıklayın
+2.	Dosyayı seçin
+3.	Veri içe aktarma sihirbazını takip edin
+Web'den Veri Alma
+Web sayfalarından veri almak için:
+1.	Veri > Web'den Al'ı tıklayın
+2.	URL'yi girin
+3.	İçe aktarmak istediğiniz tabloları seçin
+Diğer Kaynaklardan Veri Alma
+Excel, aşağıdaki kaynaklardan da veri almanıza olanak tanır:
+•	Diğer Excel dosyaları
+•	Access veritabanları
+•	SQL Server, MySQL gibi veritabanları
+•	XML dosyaları
+•	Power Query ile çeşitli veri kaynakları
+Veri Temizleme
+Yinelenen Değerleri Kaldırma
+Veri setinizdeki yinelenen değerleri kaldırmak için:
+1.	Veri aralığını seçin
+2.	Veri > Yinelenen Değerleri Kaldır'ı tıklayın
+3.	Kontrol edilecek sütunları seçin
+Metni Sütunlara Dönüştürme
+Tek bir hücredeki metni birden fazla sütuna ayırmak için:
+1.	Veri aralığını seçin
+2.	Veri > Metni Sütunlara Dönüştür'ü tıklayın
+3.	Ayırıcıyı seçin (virgül, sekme, boşluk vb.)
+4.	Her sütun için veri formatını belirleyin
+Boşlukları ve Özel Karakterleri Temizleme
+Excel, metinlerdeki fazla boşlukları ve özel karakterleri temizlemenize yardımcı olan işlevler sunar:
+•	KIRP(): Baştaki ve sondaki boşlukları kaldırır
+•	SOLKIRP(): Baştaki boşlukları kaldırır
+•	SAĞKIRP(): Sondaki boşlukları kaldırır
+•	YERİNEKOY(): Belirli karakterleri başka karakterlerle değiştirir
+Pratik Alıştırmalar
+1.	Farklı veri türlerini (metin, sayı, tarih) içeren bir tablo oluşturun.
+2.	Doldurma kolunu kullanarak 1'den 100'e kadar sayılar, aylar ve haftanın günleri serileri oluşturun.
+3.	Bir veri setinde Bul ve Değiştir özelliğini kullanarak toplu değişiklik yapın.
+4.	Veri Doğrulama kullanarak bir hücreye sadece belirli değerlerin (örneğin, 1-10 arası sayılar) girilebilmesini sağlayın.
+5.	Bir CSV dosyasını Excel'e içe aktarın ve verileri düzenleyin.
+

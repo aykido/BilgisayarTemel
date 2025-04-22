@@ -1048,6 +1048,94 @@ export const courseData: Module[] = [
                 title: "Hızlı Gezinme İpuçları",
                 description: "Hücreler arasında hızlıca gezinmek için ok tuşlarını kullanabilirsiniz. Bir satırın sonuna gitmek için End + sağ ok, bir sütunun sonuna gitmek için End + aşağı ok tuş kombinasyonlarını kullanabilirsiniz."
               }
+            },
+            {
+              type: "heading",
+              title: "Çalışma Kitabı ve Çalışma Sayfası",
+              content: "Çalışma Kitabı ve Çalışma Sayfası"
+            },
+            {
+              type: "paragraph",
+              content: "Excel dosyasının kendisine çalışma kitabı (workbook) denir. Bir çalışma kitabı, bir veya daha fazla çalışma sayfasından (worksheet) oluşur ve .xlsx uzantısı ile kaydedilir. Her sekme bir çalışma sayfasıdır ve sayfalar arasında veri kopyalanabilir veya formüllerle bağlantı kurulabilir."
+            },
+            {
+              type: "heading",
+              title: "Hücre Referansları",
+              content: "Hücre Referansları"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "sync_alt",
+                  title: "Göreceli Referans",
+                  description: "A1, B5 gibi referanslar, formül kopyalandığında otomatik olarak değişir."
+                },
+                {
+                  icon: "lock",
+                  title: "Mutlak Referans",
+                  description: "$A$1, $B$5 gibi referanslar, formül kopyalandığında değişmez."
+                },
+                {
+                  icon: "sync_lock",
+                  title: "Karma Referans",
+                  description: "$A1 (sütun sabit, satır değişken) veya A$1 (sütun değişken, satır sabit) şeklinde olabilir."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Klavye Kısayolları",
+              content: "Klavye Kısayolları"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["Kısayol", "İşlev"],
+                rows: [
+                  ["Ok tuşları", "Hücreler arasında gezinme"],
+                  ["Page Up/Page Down", "Sayfada yukarı/aşağı hareket etme"],
+                  ["Ctrl + Ok tuşları", "Veri bloğunun sonuna/başına atlama"],
+                  ["Ctrl + Home", "A1 hücresine gitme"],
+                  ["Ctrl + End", "Kullanılan son hücreye gitme"],
+                  ["F2", "Aktif hücreyi düzenleme moduna alma"],
+                  ["Enter", "Düzenlemeyi tamamlama ve bir alt hücreye geçme"],
+                  ["Tab", "Düzenlemeyi tamamlama ve bir sağdaki hücreye geçme"],
+                  ["Ctrl + C / Ctrl + V", "Kopyala / Yapıştır"],
+                  ["Ctrl + S", "Kaydet"]
+                ]
+              }
+            },
+            {
+              type: "heading",
+              title: "Excel Dosya İşlemleri",
+              content: "Excel Dosya İşlemleri"
+            },
+            {
+              type: "list",
+              content: [
+                "Dosya > Yeni: Yeni bir çalışma kitabı oluşturur",
+                "Dosya > Aç (Ctrl+O): Mevcut bir Excel dosyasını açar",
+                "Dosya > Kaydet (Ctrl+S): Dosyayı kaydeder",
+                "Dosya > Farklı Kaydet: Dosyayı farklı bir ad veya konumla kaydeder"
+              ]
+            },
+            {
+              type: "info",
+              content: {
+                icon: "file_present",
+                title: "Excel Dosya Formatları",
+                description: ".xlsx: Varsayılan Excel dosya formatı\n.xlsm: Makro içeren Excel dosyası\n.xls: Excel 97-2003 uyumlu dosya formatı\n.csv: Virgülle ayrılmış değerler dosyası\n.txt: Sekmeyle ayrılmış metin dosyası"
+              }
+            },
+            {
+              type: "heading",
+              title: "Excel Yardım Sistemi",
+              content: "Excel Yardım Sistemi"
+            },
+            {
+              type: "paragraph",
+              content: "Excel'de herhangi bir özellik hakkında yardım almak için F1 tuşuna basabilir veya Şerit üzerindeki 'Yardım' sekmesini kullanabilirsiniz. Excel 2016 ve sonraki sürümlerde, şeridin üst kısmında 'Bana söyle' arama kutusu bulunur. Buraya ne yapmak istediğinizi yazarak ilgili komutlara ve yardım içeriğine hızlıca erişebilirsiniz."
             }
           ],
           exercises: [
@@ -1200,10 +1288,67 @@ export const courseData: Module[] = [
               content: [
                 "Çoklu Hücre Seçimi: Bitişik hücreler için Shift+tıklama, bitişik olmayan hücreler için Ctrl+tıklama kullanın.",
                 "Bul ve Değiştir: Ctrl+F (Bul) veya Ctrl+H (Değiştir) kısayollarını kullanarak büyük veri setlerinde arama yapın.",
-                "Veri Doğrulama: Hücrelere girilecek veri türlerini sınırlamak için Veri > Veri Doğrulama menüsünü kullanın.",
-                "Veri İçe Aktarma: CSV, TXT dosyaları, web sayfaları ve veritabanlarından veri aktarabilirsiniz.",
-                "Veri Temizleme: Yinelenen değerleri kaldırma, metni sütunlara dönüştürme ve boşlukları temizleme."
+                "Veri Doğrulama: Hücrelere girilecek veri türlerini sınırlamak için Veri > Veri Doğrulama menüsünü kullanın."
               ]
+            },
+            {
+              type: "heading",
+              title: "Veri Doğrulama",
+              content: "Veri Doğrulama"
+            },
+            {
+              type: "paragraph",
+              content: "Veri Doğrulama, kullanıcıların hücrelere girebileceği veri türlerini sınırlamanıza olanak tanır. Bunun için hücreleri seçin, Veri > Veri Doğrulama menüsünü kullanın ve izin verilen veri türünü ve kısıtlamaları ayarlayın."
+            },
+            {
+              type: "info",
+              content: {
+                icon: "verified",
+                title: "Veri Doğrulama Seçenekleri",
+                description: "- Tam sayı, ondalık sayı, liste, tarih, saat gibi veri türleri\n- Minimum ve maksimum değerler\n- Açılır liste\n- Özel formül\n- Hata mesajları ve giriş mesajları"
+              }
+            },
+            {
+              type: "heading",
+              title: "Veri İçe Aktarma",
+              content: "Veri İçe Aktarma"
+            },
+            {
+              type: "card",
+              content: [
+                {
+                  icon: "article",
+                  title: "Metin Dosyalarından Veri İçe Aktarma",
+                  description: "CSV (Virgülle Ayrılmış Değerler) ve TXT (Sekmeyle Ayrılmış Değerler) gibi metin dosyalarından veri içe aktarmak için Veri > Metinden/CSV'den Al menüsünü kullanın."
+                },
+                {
+                  icon: "language",
+                  title: "Web'den Veri Alma",
+                  description: "Web sayfalarından veri almak için Veri > Web'den Al seçeneğini kullanın, URL'yi girin ve içe aktarmak istediğiniz tabloları seçin."
+                },
+                {
+                  icon: "storage",
+                  title: "Diğer Kaynaklardan Veri Alma",
+                  description: "Excel, diğer Excel dosyaları, Access veritabanları, SQL veritabanları ve XML dosyaları gibi çeşitli kaynaklardan da veri almanıza olanak tanır."
+                }
+              ]
+            },
+            {
+              type: "heading",
+              title: "Veri Temizleme",
+              content: "Veri Temizleme"
+            },
+            {
+              type: "table",
+              content: {
+                headers: ["İşlem", "Nasıl Yapılır"],
+                rows: [
+                  ["Yinelenen Değerleri Kaldırma", "Veri aralığını seçin, Veri > Yinelenen Değerleri Kaldır'ı tıklayın"],
+                  ["Metni Sütunlara Dönüştürme", "Veri aralığını seçin, Veri > Metni Sütunlara Dönüştür'ü tıklayın"],
+                  ["Boşlukları Temizleme", "KIRP(), SOLKIRP(), SAĞKIRP() fonksiyonlarını kullanın"],
+                  ["Karakterleri Değiştirme", "YERİNEKOY() fonksiyonunu kullanarak belirli karakterleri başka karakterlerle değiştirin"]
+                ]
+              }
             }
           ],
           exercises: [
@@ -1227,6 +1372,46 @@ export const courseData: Module[] = [
                   id: "veri-3",
                   question: "Veri Setinde Belirli Değerleri Bulma",
                   answer: "Ctrl+F tuşlarını kullanarak Bul ve Değiştir penceresini açın"
+                },
+                {
+                  id: "veri-4",
+                  question: "Metin Verilerini Sütunlara Ayırma",
+                  answer: "Veri > Metni Sütunlara Dönüştür seçeneğini kullanın"
+                },
+                {
+                  id: "veri-5",
+                  question: "Hücrelere Girilecek Veri Türünü Sınırlama",
+                  answer: "Veri > Veri Doğrulama menüsünü kullanın"
+                }
+              ]
+            },
+            {
+              id: "veri-pratik-alıstırma",
+              type: "multiplechoice",
+              title: "Pratik Veri Girişi Uygulaması",
+              description: "Aşağıdaki senaryoda doğru yaklaşımı seçin:",
+              items: [
+                {
+                  id: "senaryo-1",
+                  question: "Ocak'tan Aralık'a kadar tüm ayların isimlerini sırayla yazmak istiyorsunuz. En verimli yöntem nedir?",
+                  options: [
+                    "Her ay ismini tek tek yazmak",
+                    "'Ocak' yazıp aşağıdaki tüm hücrelere kopyalamak",
+                    "'Ocak' yazıp, hücrenin doldurma kolunu kullanarak aşağı doğru sürüklemek",
+                    "Verileri başka bir Excel dosyasından kopyalamak"
+                  ],
+                  correctAnswer: 2
+                },
+                {
+                  id: "senaryo-2",
+                  question: "Bir sütundaki sayıları kopyalayıp başka bir yere yapıştırdınız, ancak formüller yerine sadece sonuçların yapıştırılmasını istiyorsunuz. Ne yapmalısınız?",
+                  options: [
+                    "Her hücreyi tek tek manuel olarak kopyalayın",
+                    "Değerleri yazarak elle girin",
+                    "Özel Yapıştırma > Değerler seçeneğini kullanın",
+                    "Kısayol tuşlarını kullanın: Ctrl+C, Alt, E, S, V"
+                  ],
+                  correctAnswer: 2
                 }
               ]
             }
