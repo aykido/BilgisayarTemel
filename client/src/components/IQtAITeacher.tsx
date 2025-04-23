@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, Trash2, Loader2, Bot } from "lucide-react";
 import { apiRequest, getQueryFn } from "@/lib/queryClient";
+import aiTeacherAvatar from "../assets/images/ai-teacher-avatar.svg";
 
 interface Message {
   role: "user" | "assistant";
@@ -102,13 +103,24 @@ export function IQtAITeacher() {
 
   return (
     <Card className="w-full max-w-3xl mx-auto h-[calc(100vh-200px)] flex flex-col">
-      <CardHeader className="pb-4">
-        <CardTitle className="flex items-center">
+      <CardHeader className="pb-4 relative">
+        {/* Avatar - Yuvarlak çerçeve içinde AI öğretmen avatarı */}
+        <div className="flex justify-center mb-4">
+          <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+            <img 
+              src={aiTeacherAvatar} 
+              alt="AI Öğretmen" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        
+        <CardTitle className="flex items-center justify-center">
           <Bot className="h-6 w-6 mr-2 text-primary" />
-          IQt AI Öğretmene Sor
+          IQt AI Öğretmen
         </CardTitle>
-        <CardDescription>
-          Bilgisayar ve Microsoft Office konularındaki sorularınızı yapay zeka destekli öğretmenimize sorabilirsiniz.
+        <CardDescription className="text-center">
+          "Hocam" veya "Öğretmenim" diyerek bilgisayar ve Microsoft Office konularında sorular sorabilirsiniz.
         </CardDescription>
       </CardHeader>
       
