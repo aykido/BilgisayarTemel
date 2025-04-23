@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, Trash2, Loader2, Bot } from "lucide-react";
 import { apiRequest, getQueryFn } from "@/lib/queryClient";
-import aiTeacherAvatar from "../assets/images/ai-teacher-avatar.svg";
+import aiTeacherAvatar from "../assets/images/IQt.png";
 
 interface Message {
   role: "user" | "assistant";
