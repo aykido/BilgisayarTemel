@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="none" fill="none">
-        <circle fill="#3B82F6" cx="100" cy="100" r="100"/>
-        <path d="M100,50 C77.9086,50 60,67.9086 60,90 C60,112.091 77.9086,130 100,130 C122.091,130 140,112.091 140,90 C140,67.9086 122.091,50 100,50 Z" fill="#FFFFFF" fill-opacity="0.5"/>
-        <path d="M165,170 C165,143.49 135.15,120 100,120 C64.8502,120 35,143.49 35,170 C51.667,183.333 75,190 100,190 C125,190 148.333,183.333 165,170 Z" fill="#FFFFFF" fill-opacity="0.5"/>
-        <path d="M115,80 C115,72.2681 108.732,66 101,66 C93.268,66 87,72.2681 87,80" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
-        <circle fill="#FFFFFF" cx="85" cy="70" r="6"/>
-        <circle fill="#FFFFFF" cx="115" cy="70" r="6"/>
+    <g>
+        <circle fill="#1E3A5F" cx="100" cy="100" r="100"/>
+        <circle fill="#FDB813" cx="100" cy="90" r="65"/>
+        <path d="M100,40 C80,40 65,55 65,75 C65,95 80,110 100,110 C120,110 135,95 135,75 C135,55 120,40 100,40 Z" fill="#FFC835"/>
+        <path d="M100,110 C75,110 65,125 65,150 C65,160 75,170 100,170 C125,170 135,160 135,150 C135,125 125,110 100,110 Z" fill="#FFC835"/>
+        <circle fill="#1E90FF" cx="80" cy="75" r="12"/>
+        <circle fill="#1E90FF" cx="120" cy="75" r="12"/>
+        <circle fill="#FFFFFF" cx="83" cy="72" r="4"/>
+        <circle fill="#FFFFFF" cx="123" cy="72" r="4"/>
+        <path d="M85,95 C90,102 110,102 115,95" stroke="#333333" stroke-width="3" fill="none"/>
+        <circle fill="#333333" cx="65" cy="70" r="8"/>
+        <circle fill="#333333" cx="135" cy="70" r="8"/>
     </g>
 </svg>
