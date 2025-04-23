@@ -4,6 +4,7 @@ import { Request, Response, NextFunction } from "express";
 // OpenAI API bağlantısı için gerekli gizli anahtarlar
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const ASSISTANT_ID = process.env.ASSISTANT_ID;
+const VECTOR_STORE_ID = process.env.VECTOR_STORE_ID;
 
 // OpenAI API istemcisi yapılandırması
 const openai = new OpenAI({
@@ -27,6 +28,11 @@ export async function askAssistant(req: Request, res: Response, next: NextFuncti
     if (!OPENAI_API_KEY || !ASSISTANT_ID) {
       return res.status(500).json({ error: "Asistan API yapılandırması eksik" });
     }
+    
+    // Vector Store ID'nin varlığını kontrol et
+    if (!VECTOR_STORE_ID) {
+      console.warn("Vector Store ID bulunamadı, belge tabanlı yanıtlar kısıtlı olabilir.");
+    }
 
     // Kullanıcı için konuşma thread'i oluştur veya mevcut olanı kullan
     let threadId = threadMap.get(userId);
@@ -44,9 +50,25 @@ export async function askAssistant(req: Request, res: Response, next: NextFuncti
     });
 
     // Thread üzerinde çalıştırma başlat
-    const run = await openai.beta.threads.runs.create(threadId, {
+    const runOptions: any = {
       assistant_id: ASSISTANT_ID,
-    });
+    };
+    
+    // Vector Store ID varsa, çalıştırma parametrelerine ekle
+    if (VECTOR_STORE_ID) {
+      runOptions.tools = [
+        {
+          type: "retrieval"
+        }
+      ];
+      runOptions.tool_resources = {
+        retrieval: {
+          vector_store_ids: [VECTOR_STORE_ID]
+        }
+      };
+    }
+    
+    const run = await openai.beta.threads.runs.create(threadId, runOptions);
 
     // Çalıştırma tamamlanana kadar bekle
     let runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
