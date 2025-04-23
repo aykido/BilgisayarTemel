@@ -7,10 +7,10 @@ export default function AskTeacherPage() {
       <div className="flex-1 px-4 py-8 md:p-10">
         <header className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl">
-            IQt AI Öğretmene Sor
+            IQt AI Öğretmen
           </h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            Yapay zeka destekli öğretmenimize bilgisayar ve Office uygulamaları ile ilgili sorularınızı sorabilirsiniz.
+            Yapay Zeka ekranında: "Hocam", "Öğretmenim" şeklinde başlayan hitaplarla IQt öğretmene bilişim konuları hakkında sorular sorabilirsiniz.
           </p>
         </header>
         

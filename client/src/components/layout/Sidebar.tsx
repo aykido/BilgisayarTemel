@@ -150,8 +150,8 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
           >
             <span className="material-icons mr-2 text-blue-600">smart_toy</span>
             <div>
-              <div className="font-medium">IQt AI Öğretmene Sor</div>
-              <div className="text-xs text-blue-600">Yapay zeka destekli öğretmen</div>
+              <div className="font-medium">IQt AI Öğretmen</div>
+              <div className="text-xs text-blue-600">Bilişim konularında destek</div>
             </div>
           </a>
         </div>
