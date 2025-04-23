@@ -345,6 +345,13 @@ app.post("/api/module-unlock", async (req: Request, res: Response) => {
   }
 });
 
+  // IQt AI Öğretmene Sor API Rotaları
+  app.post("/api/assistant/ask", askAssistant);
+  
+  app.post("/api/assistant/clear", clearThread);
+
+  console.log("Tüm API rotaları kaydedildi, IQt AI Öğretmene Sor özellikleri aktif");
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -4,12 +4,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Lesson from "@/pages/lesson";
+import AskTeacherPage from "@/pages/ask-teacher";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/modul/:moduleId/ders/:lessonId" component={Lesson} />
+      <Route path="/ogretmene-sor" component={AskTeacherPage} />
       <Route component={NotFound} />
     </Switch>
   );

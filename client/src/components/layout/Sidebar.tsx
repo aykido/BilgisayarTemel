@@ -136,7 +136,27 @@ export function Sidebar({ isMobileOpen, onToggleMobile }: SidebarProps) {
           ))}
         </nav>
         
-        <div className="p-4 border-t border-neutral-100 mt-3">
+        <div className="px-4 pt-2 mt-2">
+          <a 
+            href="/ogretmene-sor" 
+            className="flex items-center p-3 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors text-blue-800 mb-3"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/ogretmene-sor');
+              if (isMobileOpen) {
+                onToggleMobile();
+              }
+            }}
+          >
+            <span className="material-icons mr-2 text-blue-600">smart_toy</span>
+            <div>
+              <div className="font-medium">IQt AI Öğretmene Sor</div>
+              <div className="text-xs text-blue-600">Yapay zeka destekli öğretmen</div>
+            </div>
+          </a>
+        </div>
+        
+        <div className="p-4 border-t border-neutral-100 mt-1">
           <div className="bg-neutral-50 p-3 rounded-lg">
             <h3 className="text-sm font-semibold text-neutral-800 mb-2">Yardıma mı ihtiyacın var?</h3>
             <p className="text-xs text-neutral-600 mb-3">Soruların için eğitmenle iletişime geçebilirsin.</p>
