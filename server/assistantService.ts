@@ -58,11 +58,11 @@ export async function askAssistant(req: Request, res: Response, next: NextFuncti
     if (VECTOR_STORE_ID) {
       runOptions.tools = [
         {
-          type: "retrieval"
+          type: "file_search"
         }
       ];
       runOptions.tool_resources = {
-        retrieval: {
+        file_search: {
           vector_store_ids: [VECTOR_STORE_ID]
         }
       };
