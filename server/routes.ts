@@ -1,8 +1,9 @@
-import type { Express, Request, Response } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { z } from "zod";
 import { insertUserProgressSchema, insertQuizResultSchema, insertUserSchema } from "@shared/schema";
+import { askAssistant, clearThread } from "./assistantService";
 
 // Temporary function to create a mock user for development
 const createOrGetMockUser = async () => {
